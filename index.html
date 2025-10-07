@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KarbonVero — Sua terra vale mais quando é verde.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="KarbonVero: conectamos produtores rurais ao mercado de carbono com simplicidade, transparência e impacto real." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Favicon: substitua pelos seus arquivos reais -->
+  <link rel="icon" type="image/png" href="sandbox:/mnt/data/assets/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="sandbox:/mnt/data/assets/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="sandbox:/mnt/data/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#003B73">
+  <style>
+    :root{
+      --kv-azul:#003B73; /* Azul KV */
+      --kv-dourado:#CDA434; /* Dourado KV */
+      --kv-verde:#4B7C38; /* Verde Folha */
+      --kv-cinza:#6E6E6E; /* Cinza Neutro */
+      --kv-azulclaro:#1E5A96; /* Azul Claro */
+    }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .glass { background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.55)); backdrop-filter: blur(8px); }
+    .kv-gradient-hero{ background: linear-gradient(120deg, var(--kv-azul) 0%, var(--kv-azulclaro) 45%, var(--kv-dourado) 100%); }
+    .ring-kv{ box-shadow: 0 0 0 1px rgba(0,0,0,.04) inset; }
+
+    /* Marca d'água do logo com relevo no herói */
+    .hero-watermark{ position:absolute; inset:0; pointer-events:none; background-repeat:no-repeat; background-position:85% 40%; background-size:min(42vw,520px); opacity:.12; }
+    /* Substitua o arquivo abaixo pelo seu PNG com relevo */
+    .hero-watermark{ background-image:url('sandbox:/mnt/data/assets/logo-relevo.png'); }
+
+    /* Utilitário para exibir logos de forma consistente */
+    .brand-img{ height:32px; width:auto; display:block; }
+    .brand-img--footer{ height:24px; width:auto; display:block; }
+  </style>
+</head>
+<body class="antialiased text-slate-800 bg-white">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#" class="flex items-center gap-3 font-semibold tracking-tight" aria-label="KarbonVero">
+          <!-- Logo flat: substitua o src pelo seu SVG/PNG -->
+          <img src="sandbox:/mnt/data/assets/logo-flat.svg" alt="KarbonVero" class="brand-img" />
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#servicos" class="hover:text-slate-900 text-slate-600">Serviços</a>
+          <a href="#como-funciona" class="hover:text-slate-900 text-slate-600">Como funciona</a>
+          <a href="#cases" class="hover:text-slate-900 text-slate-600">Cases</a>
+          <a href="#calculadora" class="hover:text-slate-900 text-slate-600">Calculadora de carbono</a>
+          <a href="#contato" class="hover:text-slate-900 text-slate-600">Contato</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <button data-wa class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-medium shadow-sm hover:shadow transition" style="border-color:var(--kv-azul); color:var(--kv-azul)" aria-label="Falar no WhatsApp">WhatsApp</button>
+          <a href="#contato" class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-medium shadow-sm hover:shadow transition" style="border-color:var(--kv-azul); color:var(--kv-azul)">Fale com a KarbonVero</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-90 kv-gradient-hero" aria-hidden="true"></div>
+    <!-- Marca d'água com logo em relevo -->
+    <div class="hero-watermark" aria-hidden="true"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-white">
+      <div class="grid gap-10 md:grid-cols-2 md:items-center">
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+            Crédito de carbono simples para pequenos e médios produtores
+          </h1>
+          <p class="mt-4 text-lg text-white/90">
+            Diagnóstico, projeto e conexão com o mercado — com rastreabilidade e transparência. <span class="font-semibold">Sua terra vale mais quando é verde.</span>
+          </p>
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="#contato" class="rounded-2xl px-5 py-3 font-medium shadow hover:opacity-90" style="background:var(--kv-dourado); color:#141414">Quero começar</a>
+            <a href="#calculadora" class="rounded-2xl border px-5 py-3 font-medium hover:shadow" style="border-color:rgba(255,255,255,.6); color:white">Estimar potencial</a>
+          </div>
+          <div class="mt-6 text-xs text-white/80">Sem compromisso • Orçamento rápido • Suporte via WhatsApp</div>
+        </div>
+        <div class="glass rounded-3xl p-6 shadow-xl ring-kv">
+          <div class="aspect-video w-full rounded-2xl" style="background:linear-gradient(135deg, rgba(255,255,255,.6), rgba(255,255,255,.3));"></div>
+          <div class="mt-4 grid grid-cols-3 gap-3 text-center">
+            <div class="rounded-2xl border p-4 border-white/40">
+              <div class="text-2xl font-bold">Processos</div>
+              <div class="text-xs text-white/90">padronizados</div>
+            </div>
+            <div class="rounded-2xl border p-4 border-white/40">
+              <div class="text-2xl font-bold">Transparência</div>
+              <div class="text-xs text-white/90">e rastreabilidade</div>
+            </div>
+            <div class="rounded-2xl border p-4 border-white/40">
+              <div class="text-2xl font-bold">Foco</div>
+              <div class="text-xs text-white/90">em resultado</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section class="py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm" style="color:var(--kv-cinza)">Parcerias e referências do agro:</p>
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-6 opacity-90">
+        <div class="h-8 rounded" style="background:#E5E7EB"></div>
+        <div class="h-8 rounded" style="background:#E5E7EB"></div>
+        <div class="h-8 rounded" style="background:#E5E7EB"></div>
+        <div class="h-8 rounded" style="background:#E5E7EB"></div>
+        <div class="h-8 rounded" style="background:#E5E7EB"></div>
+        <div class="h-8 rounded" style="background:#E5E7EB"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="py-16 border-t">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Serviços</h2>
+        <p class="mt-2" style="color:var(--kv-cinza)">Soluções pragmáticas para iniciar ou ampliar o seu projeto de carbono.</p>
+      </div>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <div class="rounded-3xl border p-6 shadow-sm hover:shadow transition">
+          <h3 class="font-semibold" style="color:var(--kv-azulclaro)">Diagnóstico de Potencial</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">Levantamento inicial de aptidão (pastagens, ILPF, reflorestamento), estimativas e elegibilidade.</p>
+          <ul class="mt-4 list-disc pl-5 text-sm" style="color:var(--kv-cinza)">
+            <li>Mapeamento de áreas</li>
+            <li>Estimativa de sequestro</li>
+            <li>Pré-viabilidade econômica</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl border p-6 shadow-sm hover:shadow transition">
+          <h3 class="font-semibold" style="color:var(--kv-azulclaro)">Projeto & MRV</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">Desenho técnico, protocolos de monitoramento, relato e verificação conforme metodologias.</p>
+          <ul class="mt-4 list-disc pl-5 text-sm" style="color:var(--kv-cinza)">
+            <li>Plano técnico</li>
+            <li>Coleta e trilhas de evidência</li>
+            <li>Suporte à verificação</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl border p-6 shadow-sm hover:shadow transition">
+          <h3 class="font-semibold" style="color:var(--kv-azulclaro)">Go-to-Market</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">Conexão com compradores, documentação e negociação para emissão ou venda.</p>
+          <ul class="mt-4 list-disc pl-5 text-sm" style="color:var(--kv-cinza)">
+            <li>Estratégia comercial</li>
+            <li>Due diligence</li>
+            <li>Roadmap de emissão/venda</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como funciona -->
+  <section id="como-funciona" class="py-16 border-t" style="background:#F8FAFC">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Como funciona</h2>
+        <p class="mt-2" style="color:var(--kv-cinza)">Processo claro, com marcos verificáveis.</p>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">Etapa 1</div>
+          <h3 class="mt-1 font-semibold">Descoberta</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">Objetivos, áreas e dados básicos. Pré-estimativa de potencial.</p>
+        </div>
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">Etapa 2</div>
+          <h3 class="mt-1 font-semibold">Projeto</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">Plano técnico e MRV simplificado com auditoria em mente.</p>
+        </div>
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">Etapa 3</div>
+          <h3 class="mt-1 font-semibold">Mercado</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">Documentação, conexão e negociação com compradores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cases / Depoimentos (placeholder) -->
+  <section id="cases" class="py-16 border-t">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Resultados de clientes</h2>
+        <p class="mt-2" style="color:var(--kv-cinza)">Breves histórias reais (ou placeholders até termos cases publicados).</p>
+      </div>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <article class="rounded-3xl border p-6">
+          <p class="text-sm text-slate-700">“Roadmap claro, documentação organizada e negociação sem dor de cabeça.”</p>
+          <div class="mt-4 text-xs" style="color:var(--kv-cinza)">Produtor A • Pecuária</div>
+        </article>
+        <article class="rounded-3xl border p-6">
+          <p class="text-sm text-slate-700">“Viabilidade realista e suporte no MRV fizeram a diferença.”</p>
+          <div class="mt-4 text-xs" style="color:var(--kv-cinza)">Produtor B • ILPF</div>
+        </article>
+        <article class="rounded-3xl border p-6">
+          <p class="text-sm text-slate-700">“Estimativas conservadoras e transparência em cada etapa.”</p>
+          <div class="mt-4 text-xs" style="color:var(--kv-cinza)">Produtor C • Reflorestamento</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculadora de Carbono (estimativa simplificada) -->
+  <section id="calculadora" class="py-16 border-t" style="background:#F8FAFC">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Calculadora de carbono (estimativa simplificada)</h2>
+      <p class="mt-2 text-sm" style="color:var(--kv-cinza)">Use para ter uma noção rápida do potencial. Valores de referência são apenas ilustrativos e podem variar conforme método, solo, clima e manejo.</p>
+      <div class="mt-6 rounded-3xl bg-white p-6 shadow-sm ring-kv">
+        <form id="kv-calc" class="grid gap-4">
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="text-sm font-medium">Área (ha)</label>
+              <input id="area" type="number" min="0" step="0.01" placeholder="Ex.: 50" class="w-full rounded-2xl border px-4 py-3" required>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Prática</label>
+              <select id="pratica" class="w-full rounded-2xl border px-4 py-3">
+                <option value="pastagem">Recuperação de pastagens</option>
+                <option value="ilpf">ILPF / Integração</option>
+                <option value="reflorestamento">Reflorestamento comercial</option>
+                <option value="agrofloresta">Agrofloresta</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Taxa (tCO₂e/ha/ano)</label>
+              <input id="taxa" type="number" min="0" step="0.01" class="w-full rounded-2xl border px-4 py-3" placeholder="Ex.: 3.0" required>
+              <p class="mt-1 text-[11px]" style="color:var(--kv-cinza)">Edite conforme seu contexto/método.</p>
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="text-sm font-medium">Período (anos)</label>
+              <input id="anos" type="number" min="1" step="1" value="5" class="w-full rounded-2xl border px-4 py-3" required>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Preço (R$/tCO₂e)</label>
+              <input id="preco" type="number" min="0" step="0.01" placeholder="Ex.: 60" class="w-full rounded-2xl border px-4 py-3" required>
+            </div>
+            <div class="flex items-end gap-2">
+              <button type="submit" class="w-full rounded-2xl px-5 py-3 font-medium shadow hover:opacity-90" style="background:var(--kv-verde); color:white">Calcular</button>
+              <a href="/calculadora" class="rounded-2xl border px-5 py-3 font-medium" style="border-color:var(--kv-azul); color:var(--kv-azul)">Avançada</a>
+            </div>
+          </div>
+        </form>
+        <div id="resultado" class="mt-6 hidden rounded-2xl border p-4">
+          <div class="grid sm:grid-cols-3 gap-4 text-center">
+            <div>
+              <div class="text-xs" style="color:var(--kv-cinza)">tCO₂e estimados (período)</div>
+              <div id="r_tco2" class="text-2xl font-bold"></div>
+            </div>
+            <div>
+              <div class="text-xs" style="color:var(--kv-cinza)">Receita bruta potencial</div>
+              <div id="r_receita" class="text-2xl font-bold"></div>
+            </div>
+            <div>
+              <div class="text-xs" style="color:var(--kv-cinza)">Taxa usada</div>
+              <div id="r_taxa" class="text-2xl font-bold"></div>
+            </div>
+          </div>
+          <p class="mt-3 text-[11px]" style="color:var(--kv-cinza)">💡 Estimativa simplificada — não substitui estudo técnico, metodologia, adicionais, descontos, custos de MRV e riscos de projeto.</p>
+        </div>
+      </div>
+
+      <!-- Calculadora Avançada (atua quando a rota é /calculadora) -->
+      <div id="calc-avancada" class="mt-10 hidden rounded-3xl bg-white p-6 shadow-sm ring-kv">
+        <h3 class="text-xl font-semibold" style="color:var(--kv-azul)">Calculadora avançada</h3>
+        <p class="text-sm mt-1" style="color:var(--kv-cinza)">Inclui ajustes por bioma, tipo de solo, fração solo vs. biomassa, descontos (buffer, leakage, adicionalidade), custos de MRV e implantação.</p>
+        <form id="kv-calc-adv" class="grid gap-4 mt-4">
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="text-sm font-medium">Área (ha)</label>
+              <input id="a_area" type="number" min="0" step="0.01" class="w-full rounded-2xl border px-4 py-3" required>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Prática</label>
+              <select id="a_pratica" class="w-full rounded-2xl border px-4 py-3">
+                <option value="pastagem">Recuperação de pastagens</option>
+                <option value="ilpf">ILPF / Integração</option>
+                <option value="reflorestamento">Reflorestamento comercial</option>
+                <option value="agrofloresta">Agrofloresta</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Período (anos)</label>
+              <input id="a_anos" type="number" min="1" step="1" value="10" class="w-full rounded-2xl border px-4 py-3" required>
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="text-sm font-medium">Bioma</label>
+              <select id="a_bioma" class="w-full rounded-2xl border px-4 py-3">
+                <option>Amazônia</option>
+                <option>Cerrado</option>
+                <option>Mata Atlântica</option>
+                <option>Caatinga</option>
+                <option>Pampa</option>
+                <option>Pantanal</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Solo</label>
+              <select id="a_solo" class="w-full rounded-2xl border px-4 py-3">
+                <option>Arenoso</option>
+                <option>Argiloso</option>
+                <option>Gleissolo/Orgânico</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Preço (R$/tCO₂e)</label>
+              <input id="a_preco" type="number" min="0" step="0.01" value="60" class="w-full rounded-2xl border px-4 py-3" required>
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="text-sm font-medium">Fração solo vs biomassa</label>
+              <select id="a_fracao" class="w-full rounded-2xl border px-4 py-3">
+                <option value="0.5">50%/50%</option>
+                <option value="0.6">60% solo / 40% biomassa</option>
+                <option value="0.4">40% solo / 60% biomassa</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Descontos totais (%)</label>
+              <input id="a_desc" type="number" min="0" max="80" step="1" value="20" class="w-full rounded-2xl border px-4 py-3">
+              <p class="text-[11px] mt-1" style="color:var(--kv-cinza)">Inclui buffer, leakage, adicionalidade, etc.</p>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Custos MRV (R$/ano)</label>
+              <input id="a_mrv" type="number" min="0" step="0.01" value="30000" class="w-full rounded-2xl border px-4 py-3">
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="text-sm font-medium">Custo implantação (R$/ha)</label>
+              <input id="a_impl" type="number" min="0" step="0.01" value="2500" class="w-full rounded-2xl border px-4 py-3">
+            </div>
+            <div>
+              <label class="text-sm font-medium">Taxa base (tCO₂e/ha/ano)</label>
+              <input id="a_taxa" type="number" min="0" step="0.01" placeholder="auto" class="w-full rounded-2xl border px-4 py-3">
+              <p class="text-[11px] mt-1" style="color:var(--kv-cinza)">Se vazio, usamos presets por prática/bioma/solo.</p>
+            </div>
+            <div class="flex items-end">
+              <button type="submit" class="w-full rounded-2xl px-5 py-3 font-medium shadow hover:opacity-90" style="background:var(--kv-verde); color:white">Calcular avançado</button>
+            </div>
+          </div>
+        </form>
+        <div id="a_result" class="mt-6 hidden rounded-2xl border p-4">
+          <div class="grid sm:grid-cols-4 gap-4 text-center">
+            <div><div class="text-xs" style="color:var(--kv-cinza)">tCO₂e brutos</div><div id="a_tco2_b" class="text-2xl font-bold"></div></div>
+            <div><div class="text-xs" style="color:var(--kv-cinza)">Descontos aplicados</div><div id="a_desc_show" class="text-2xl font-bold"></div></div>
+            <div><div class="text-xs" style="color:var(--kv-cinza)">tCO₂e líquidos</div><div id="a_tco2_l" class="text-2xl font-bold"></div></div>
+            <div><div class="text-xs" style="color:var(--kv-cinza)">Resultado líquido</div><div id="a_receita_l" class="text-2xl font-bold"></div></div>
+          </div>
+          <p class="mt-3 text-[11px]" style="color:var(--kv-cinza)">💡 Inclui custos de MRV anuais e custo de implantação por hectare no ano 0 (simples). Para CAPEX/OPEX detalhado e curva de acúmulo de carbono, usamos planilha técnica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 border-t">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl p-10 text-white" style="background:var(--kv-azul)">
+        <div class="grid gap-6 md:grid-cols-2 md:items-center">
+          <div>
+            <h3 class="text-2xl font-bold">Quer um diagnóstico gratuito do potencial da sua área?</h3>
+            <p class="mt-2 text-white/90">Enviamos um resumo com hipóteses, dados necessários e próximos passos.</p>
+          </div>
+          <div class="flex md:justify-end items-center gap-3">
+            <a href="#contato" class="rounded-2xl bg-white/10 px-5 py-3 font-medium ring-1 ring-inset ring-white/30 hover:bg-white/20">Falar agora</a>
+            <a href="#servicos" class="rounded-2xl bg-white text-slate-900 px-5 py-3 font-medium">Ver serviços</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="py-16 border-t" style="background:#F8FAFC">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Contato</h2>
+      <p class="mt-2" style="color:var(--kv-cinza)">Preencha o formulário e retornaremos em breve.</p>
+      <form name="contato" class="mt-8 grid gap-4" method="post" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contato" />
+        <p class="hidden"><label>Não preencha: <input name="bot-field" /></label></p>>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <input type="text" placeholder="Seu nome" class="w-full rounded-2xl border px-4 py-3" required>
+          <input type="email" placeholder="Seu e-mail" class="w-full rounded-2xl border px-4 py-3" required>
+        </div>
+        <input type="text" placeholder="Propriedade/Empresa (opcional)" class="w-full rounded-2xl border px-4 py-3">
+        <textarea rows="4" placeholder="Conte rapidamente a área (ha), prática desejada e prazo" class="w-full rounded-2xl border px-4 py-3"></textarea>
+        <button type="submit" class="rounded-2xl px-5 py-3 text-white font-medium shadow hover:opacity-90" style="background:var(--kv-azulclaro)">Enviar</button>
+        <p class="text-xs" style="color:var(--kv-cinza)">Ao enviar, você concorda com nossa política de privacidade.</p>
+      </form>
+      <div class="mt-4 text-sm" style="color:var(--kv-cinza)">CNPJ (em definição) • contato@karbonvero.com</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <!-- Repetimos a versão flat no rodapé para legibilidade -->
+          <img src="sandbox:/mnt/data/assets/logo-flat.svg" alt="KarbonVero" class="brand-img--footer" />
+          <p class="text-sm" style="color:var(--kv-cinza)">© <span id="year"></span> KarbonVero. Todos os direitos reservados.</p>
+        </div>
+        <div class="text-sm" style="color:var(--kv-cinza)">“Sua terra vale mais quando é verde.”</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ano
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // presets de taxa por prática (ilustrativos; edite conforme método)
+    const presets = {
+      pastagem: 3.0,
+      ilpf: 4.0,
+      reflorestamento: 8.0,
+      agrofloresta: 5.0,
+    };
+
+    const praticaEl = document.getElementById('pratica');
+    const taxaEl = document.getElementById('taxa');
+    const form = document.getElementById('kv-calc');
+    const res = document.getElementById('resultado');
+    const rT = document.getElementById('r_tco2');
+    const rR = document.getElementById('r_receita');
+    const rX = document.getElementById('r_taxa');
+
+    if (praticaEl && taxaEl){
+      const applyPreset = () => { taxaEl.value = presets[praticaEl.value] || ''; };
+      praticaEl.addEventListener('change', applyPreset);
+      applyPreset();
+    }
+
+    form?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const area = parseFloat(document.getElementById('area').value || '0');
+      const taxa = parseFloat(document.getElementById('taxa').value || '0');
+      const anos = parseInt(document.getElementById('anos').value || '0', 10);
+      const preco = parseFloat(document.getElementById('preco').value || '0');
+      if(area<=0 || taxa<=0 || anos<=0 || preco<0){ return; }
+      const tco2 = area * taxa * anos; // estimativa bruta
+      const receita = tco2 * preco;
+      rT.textContent = tco2.toLocaleString('pt-BR', {maximumFractionDigits: 2});
+      rR.textContent = receita.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+      rX.textContent = `${taxa.toLocaleString('pt-BR', {maximumFractionDigits: 2})} tCO₂e/ha/ano`;
+      res.classList.remove('hidden');
+      res.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  </script>
+  <script>
+    // ano
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Simplificada =====
+    const presets = { pastagem: 3.0, ilpf: 4.0, reflorestamento: 8.0, agrofloresta: 5.0 };
+    const praticaEl = document.getElementById('pratica');
+    const taxaEl = document.getElementById('taxa');
+    const form = document.getElementById('kv-calc');
+    const res = document.getElementById('resultado');
+    const rT = document.getElementById('r_tco2');
+    const rR = document.getElementById('r_receita');
+    const rX = document.getElementById('r_taxa');
+
+    if (praticaEl && taxaEl){
+      const applyPreset = () => { taxaEl.value = presets[praticaEl.value] || ''; };
+      praticaEl.addEventListener('change', applyPreset);
+      applyPreset();
+    }
+
+    form?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const area = parseFloat(document.getElementById('area').value || '0');
+      const taxa = parseFloat(document.getElementById('taxa').value || '0');
+      const anos = parseInt(document.getElementById('anos').value || '0', 10);
+      const preco = parseFloat(document.getElementById('preco').value || '0');
+      if(area<=0 || taxa<=0 || anos<=0 || preco<0){ return; }
+      const tco2 = area * taxa * anos; // estimativa bruta
+      const receita = tco2 * preco;
+      rT.textContent = tco2.toLocaleString('pt-BR', {maximumFractionDigits: 2});
+      rR.textContent = receita.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+      rX.textContent = `${taxa.toLocaleString('pt-BR', {maximumFractionDigits: 2})} tCO₂e/ha/ano`;
+      res.classList.remove('hidden');
+      res.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+
+    // ===== Avançada (/calculadora) =====
+    const adv = document.getElementById('calc-avancada');
+    if (adv && (location.pathname.endsWith('/calculadora') || location.hash === '#calculadora-avancada')){
+      adv.classList.remove('hidden');
+      adv.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    // presets por bioma/solo/prática (exemplos ilustrativos; ajuste depois com base técnica)
+    const baseByPractice = { pastagem: 3.2, ilpf: 4.5, reflorestamento: 9.0, agrofloresta: 5.5 };
+    const biomeFactor = { 'Amazônia': 1.10, 'Cerrado': 1.00, 'Mata Atlântica': 1.05, 'Caatinga': 0.85, 'Pampa': 0.90, 'Pantanal': 0.95 };
+    const soilFactor  = { 'Arenoso': 0.92, 'Argiloso': 1.00, 'Gleissolo/Orgânico': 1.08 };
+
+    const aForm = document.getElementById('kv-calc-adv');
+    const a_out_b = document.getElementById('a_tco2_b');
+    const a_out_l = document.getElementById('a_tco2_l');
+    const a_out_d = document.getElementById('a_desc_show');
+    const a_out_r = document.getElementById('a_receita_l');
+    const a_res = document.getElementById('a_result');
+
+    aForm?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const area = parseFloat(document.getElementById('a_area').value || '0');
+      const anos = parseInt(document.getElementById('a_anos').value || '0');
+      const pratica = document.getElementById('a_pratica').value;
+      const bioma = document.getElementById('a_bioma').value;
+      const solo = document.getElementById('a_solo').value;
+      const preco = parseFloat(document.getElementById('a_preco').value || '0');
+      const fracaoSolo = parseFloat(document.getElementById('a_fracao').value || '0.5');
+      const descontos = parseFloat(document.getElementById('a_desc').value || '0');
+      const mrv = parseFloat(document.getElementById('a_mrv').value || '0');
+      const impl = parseFloat(document.getElementById('a_impl').value || '0');
+      let taxa = parseFloat(document.getElementById('a_taxa').value || '0');
+
+      if(!taxa){
+        const base = baseByPractice[pratica] || 0;
+        taxa = base * (biomeFactor[bioma] || 1) * (soilFactor[solo] || 1);
+      }
+
+      if(area<=0 || anos<=0 || taxa<=0 || preco<0){ return; }
+
+      // Partições solo/biomassa (poderíamos aplicar fatores diferentes no futuro)
+      const taxaSolo = taxa * fracaoSolo;
+      const taxaBio  = taxa * (1 - fracaoSolo);
+
+      const tco2_bruto = area * (taxaSolo + taxaBio) * anos;
+      const tco2_liq = tco2_bruto * (1 - descontos/100);
+
+      const receita_bruta = tco2_liq * preco;
+      // custos: MRV por ano + implantação no ano 0
+      const custos_total = (mrv * anos) + (impl * area);
+      const resultado_liq = receita_bruta - custos_total;
+
+      a_out_b.textContent = tco2_bruto.toLocaleString('pt-BR', {maximumFractionDigits: 2});
+      a_out_d.textContent = `${descontos.toFixed(0)}%`;
+      a_out_l.textContent = tco2_liq.toLocaleString('pt-BR', {maximumFractionDigits: 2});
+      a_out_r.textContent = resultado_liq.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+
+      a_res.classList.remove('hidden');
+      a_res.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+
+    // ===== Header WhatsApp: precisa do número real =====
+    // Substitua WHATSAPP_NUMBER pelo seu número com DDI/DD (ex.: 55DDDNUMERO)
+    const waBtns = document.querySelectorAll('[data-wa]');
+    waBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const numero = '5515997353773';
+        const text = encodeURIComponent('Olá! Quero estimar meu potencial de crédito de carbono com a KarbonVero.');
+        const url = numero ? `https://wa.me/${numero}?text=${text}` : `https://api.whatsapp.com/send?text=${text}`;
+        window.open(url, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>

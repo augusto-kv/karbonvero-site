@@ -1,133 +1,243 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KarbonVero — Calculadora avançada</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Calculadora Avançada — KarbonVero</title>
+
+  <!-- SEO / Social -->
+  <link rel="canonical" href="https://www.karbonvero.com/calculadora.html">
+  <meta name="description" content="Calculadora avançada de crédito de carbono: Parâmetros por bioma, tipo de solo, carbono do solo vs biomassa, descontos, MRV e custos.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:image" content="/kv-badge-512.png">
   <meta name="theme-color" content="#003B73">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     :root{--kv-azul:#003B73;--kv-dourado:#CDA434;--kv-verde:#4B7C38;--kv-cinza:#6E6E6E;--kv-azulclaro:#1E5A96}
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    .ring-kv{box-shadow:0 0 0 1px rgba(0,0,0,.04) inset}
-    .brand-img{height:32px;width:auto}
+    .brand-img{height:28px;width:auto}
   </style>
 </head>
-<body class="antialiased text-slate-800 bg-white">
-  <!-- Navbar -->
-  <header class="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <a href="/" class="flex items-center gap-3 font-semibold tracking-tight">
-          <img src="/assets/logo-flat.svg" alt="KarbonVero" class="brand-img"/>
-        </a>
-        <div class="flex items-center gap-2">
-          <a href="/" class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-medium shadow-sm"
-             style="border-color:var(--kv-azul);color:var(--kv-azul)">Voltar</a>
-        </div>
-      </div>
+<body class="antialiased bg-white text-slate-800">
+  <!-- Header simples -->
+  <header class="border-b bg-white/80 backdrop-blur">
+    <div class="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <picture>
+          <source srcset="/logo-wordmark.svg" type="image/svg+xml">
+          <img src="/logo-wordmark.png" alt="KarbonVero" class="brand-img" width="160" height="28">
+        </picture>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/#servicos" class="text-slate-600 hover:text-slate-900">Serviços</a>
+        <a href="/#como-funciona" class="text-slate-600 hover:text-slate-900">Como funciona</a>
+        <a href="/#contato" class="text-slate-600 hover:text-slate-900">Contato</a>
+      </nav>
     </div>
   </header>
 
-  <section class="py-16 border-b" style="background:#F8FAFC">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Calculadora avançada</h1>
-      <p class="mt-2 text-sm" style="color:var(--kv-cinza)">Ajustes por bioma, solo, fração solo/biomassa, descontos e custos.</p>
-    </div>
-  </section>
+  <!-- Main -->
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <h1 class="text-3xl font-bold" style="color:var(--kv-azul)">Calculadora avançada de carbono</h1>
+    <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
+      Estimativa com parâmetros por bioma, tipo de solo, fração solo/biomassa, descontos e custos.
+      Valores são indicativos e devem ser ajustados conforme metodologia e auditoria (MRV).
+    </p>
 
-  <section class="py-10">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv">
-        <form id="kv-calc-adv" class="grid gap-4">
-          <div class="grid sm:grid-cols-3 gap-4">
-            <div><label class="text-sm font-medium">Área (ha)</label><input id="a_area" type="number" min="0" step="0.01" class="w-full rounded-2xl border px-4 py-3" required></div>
-            <div><label class="text-sm font-medium">Prática</label><select id="a_pratica" class="w-full rounded-2xl border px-4 py-3"><option value="pastagem">Recuperação de pastagens</option><option value="ilpf">ILPF / Integração</option><option value="reflorestamento">Reflorestamento comercial</option><option value="agrofloresta">Agrofloresta</option></select></div>
-            <div><label class="text-sm font-medium">Período (anos)</label><input id="a_anos" type="number" min="1" step="1" value="10" class="w-full rounded-2xl border px-4 py-3" required></div>
+    <section class="mt-6 grid lg:grid-cols-3 gap-6">
+      <!-- Parâmetros -->
+      <form id="calc-adv" class="lg:col-span-2 grid gap-4 rounded-3xl border p-6 bg-white shadow-sm">
+        <div class="grid md:grid-cols-3 gap-4">
+          <div>
+            <label class="text-sm font-medium">Área (ha)</label>
+            <input id="a_area" type="number" min="0" step="0.01" class="w-full rounded-2xl border px-4 py-3" placeholder="Ex.: 120" required>
           </div>
-          <div class="grid sm:grid-cols-3 gap-4">
-            <div><label class="text-sm font-medium">Bioma</label><select id="a_bioma" class="w-full rounded-2xl border px-4 py-3"><option>Amazônia</option><option>Cerrado</option><option>Mata Atlântica</option><option>Caatinga</option><option>Pampa</option><option>Pantanal</option></select></div>
-            <div><label class="text-sm font-medium">Solo</label><select id="a_solo" class="w-full rounded-2xl border px-4 py-3"><option>Arenoso</option><option>Argiloso</option><option>Gleissolo/Orgânico</option></select></div>
-            <div><label class="text-sm font-medium">Preço (R$/tCO₂e)</label>
-              <div class="flex items-center gap-2">
-                <input id="a_preco" type="number" min="0" step="0.01" value="60" class="w-full rounded-2xl border px-4 py-3" required>
-                <a href="/precos.html" target="_blank" rel="noopener" class="text-xs underline" style="color:var(--kv-azulclaro)">Ver preços hoje</a>
-              </div>
+          <div>
+            <label class="text-sm font-medium">Período (anos)</label>
+            <input id="a_anos" type="number" min="1" step="1" value="10" class="w-full rounded-2xl border px-4 py-3" required>
+          </div>
+          <div>
+            <label class="text-sm font-medium">Preço (R$/tCO₂e)</label>
+            <div class="flex items-center gap-2">
+              <input id="a_preco" type="number" min="0" step="0.01" class="w-full rounded-2xl border px-4 py-3" placeholder="Ex.: 60" required>
+              <a href="/precos.html" target="_blank" class="text-xs underline" style="color:var(--kv-azulclaro)">Ver preços hoje</a>
             </div>
           </div>
-          <div class="grid sm:grid-cols-3 gap-4">
-            <div><label class="text-sm font-medium">Fração solo vs biomassa</label><select id="a_fracao" class="w-full rounded-2xl border px-4 py-3"><option value="0.5">50%/50%</option><option value="0.6">60% solo / 40% biomassa</option><option value="0.4">40% solo / 60% biomassa</option></select></div>
-            <div><label class="text-sm font-medium">Descontos totais (%)</label><input id="a_desc" type="number" min="0" max="80" step="1" value="20" class="w-full rounded-2xl border px-4 py-3"><p class="text-[11px] mt-1" style="color:var(--kv-cinza)">Inclui buffer, leakage, adicionalidade, etc.</p></div>
-            <div><label class="text-sm font-medium">Custos MRV (R$/ano)</label><input id="a_mrv" type="number" min="0" step="0.01" value="30000" class="w-full rounded-2xl border px-4 py-3"></div>
-          </div>
-          <div class="grid sm:grid-cols-3 gap-4">
-            <div><label class="text-sm font-medium">Custo implantação (R$/ha)</label><input id="a_impl" type="number" min="0" step="0.01" value="2500" class="w-full rounded-2xl border px-4 py-3"></div>
-            <div><label class="text-sm font-medium">Taxa base (tCO₂e/ha/ano)</label><input id="a_taxa" type="number" min="0" step="0.01" placeholder="auto" class="w-full rounded-2xl border px-4 py-3"><p class="text-[11px] mt-1" style="color:var(--kv-cinza)">Se vazio, usamos presets por prática/bioma/solo.</p></div>
-            <div class="flex items-end"><button type="submit" class="w-full rounded-2xl px-5 py-3 font-medium shadow hover:opacity-90" style="background:var(--kv-verde);color:white">Calcular avançado</button></div>
-          </div>
-        </form>
-        <div id="a_result" class="mt-6 hidden rounded-2xl border p-4">
-          <div class="grid sm:grid-cols-4 gap-4 text-center">
-            <div><div class="text-xs" style="color:var(--kv-cinza)">tCO₂e brutos</div><div id="a_tco2_b" class="text-2xl font-bold"></div></div>
-            <div><div class="text-xs" style="color:var(--kv-cinza)">Descontos aplicados</div><div id="a_desc_show" class="text-2xl font-bold"></div></div>
-            <div><div class="text-xs" style="color:var(--kv-cinza)">tCO₂e líquidos</div><div id="a_tco2_l" class="text-2xl font-bold"></div></div>
-            <div><div class="text-xs" style="color:var(--kv-cinza)">Resultado líquido</div><div id="a_receita_l" class="text-2xl font-bold"></div></div>
-          </div>
-          <p class="mt-3 text-[11px]" style="color:var(--kv-cinza)">💡 Inclui custos MRV/ano e implantação/ha no ano 0 (simples).</p>
         </div>
-      </div>
-    </div>
-  </section>
 
+        <div class="grid md:grid-cols-3 gap-4">
+          <div>
+            <label class="text-sm font-medium">Prática</label>
+            <select id="a_pratica" class="w-full rounded-2xl border px-4 py-3">
+              <option value="pastagem">Recuperação de pastagens</option>
+              <option value="ilpf">ILPF / Integração</option>
+              <option value="reflorestamento">Reflorestamento comercial</option>
+              <option value="agrofloresta">Agrofloresta</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-sm font-medium">Bioma</label>
+            <select id="a_bioma" class="w-full rounded-2xl border px-4 py-3">
+              <option value="cerrado">Cerrado</option>
+              <option value="mata">Mata Atlântica</option>
+              <option value="amazonia">Amazônia</option>
+              <option value="pampa">Pampa</option>
+              <option value="caatinga">Caatinga</option>
+              <option value="pantanal">Pantanal</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-sm font-medium">Solo</label>
+            <select id="a_solo" class="w-full rounded-2xl border px-4 py-3">
+              <option value="argiloso">Argiloso</option>
+              <option value="arenoso">Arenoso</option>
+              <option value="mistos">Mistos</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <div>
+            <label class="text-sm font-medium">Fração carbono do solo</label>
+            <input id="a_frac_solo" type="number" min="0" max="1" step="0.05" value="0.5" class="w-full rounded-2xl border px-4 py-3">
+            <p class="text-[11px]" style="color:var(--kv-cinza)">0 a 1 (ex.: 0,5 = 50% do sequestro está no solo)</p>
+          </div>
+          <div>
+            <label class="text-sm font-medium">Taxa base (tCO₂e/ha/ano)</label>
+            <input id="a_taxa_base" type="number" min="0" step="0.01" class="w-full rounded-2xl border px-4 py-3" placeholder="auto">
+            <p class="text-[11px]" style="color:var(--kv-cinza)">Se vazio, usamos presets por prática/bioma/solo.</p>
+          </div>
+          <div>
+            <label class="text-sm font-medium">Degradação inicial de pasto (%)</label>
+            <input id="a_deg" type="number" min="0" max="80" step="1" value="20" class="w-full rounded-2xl border px-4 py-3">
+            <p class="text-[11px]" style="color:var(--kv-cinza)">Só aplicável em pastagem. Aumenta potencial inicial.</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <div>
+            <label class="text-sm font-medium">Descontos (risco, vazamentos, buffer) %</label>
+            <input id="a_desc" type="number" min="0" max="60" step="1" value="15" class="w-full rounded-2xl border px-4 py-3">
+          </div>
+          <div>
+            <label class="text-sm font-medium">Custos MRV + gestão (R$/t)</label>
+            <input id="a_custos" type="number" min="0" step="0.01" value="8" class="w-full rounded-2xl border px-4 py-3">
+          </div>
+          <div class="flex items-end">
+            <button type="submit" class="w-full rounded-2xl px-5 py-3 font-medium shadow hover:opacity-90" style="background:var(--kv-verde);color:white">Calcular avançado</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Resultado -->
+      <aside id="adv-res" class="rounded-3xl border p-6 bg-white shadow-sm hidden">
+        <h2 class="text-xl font-semibold mb-2" style="color:var(--kv-azul)">Resultado</h2>
+        <div class="grid grid-cols-2 gap-4 text-sm">
+          <div class="rounded-2xl border p-3">
+            <div class="text-[11px]" style="color:var(--kv-cinza)">tCO₂e (total período)</div>
+            <div id="adv_tco2" class="text-2xl font-bold"></div>
+          </div>
+          <div class="rounded-2xl border p-3">
+            <div class="text-[11px]" style="color:var(--kv-cinza)">Receita bruta</div>
+            <div id="adv_bruta" class="text-2xl font-bold"></div>
+          </div>
+          <div class="rounded-2xl border p-3">
+            <div class="text-[11px]" style="color:var(--kv-cinza)">Receita líquida (– custos)</div>
+            <div id="adv_liquida" class="text-2xl font-bold"></div>
+          </div>
+          <div class="rounded-2xl border p-3">
+            <div class="text-[11px]" style="color:var(--kv-cinza)">Taxa efetiva usada</div>
+            <div id="adv_tx" class="text-2xl font-bold"></div>
+          </div>
+        </div>
+        <p class="mt-3 text-[11px]" style="color:var(--kv-cinza)">
+          Estimativa indicativa. Ajuste com metodologia, dados locais e requisitos de verificação.
+        </p>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer class="border-t">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+    <div class="mx-auto max-w-6xl px-4 py-8 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <img src="/assets/logo-flat.svg" alt="KarbonVero" class="brand-img"/>
-        <p class="text-sm" style="color:var(--kv-cinza)">© <span id="year"></span> KarbonVero</p>
+        <picture>
+          <source srcset="/logo-wordmark.svg" type="image/svg+xml">
+          <img src="/logo-wordmark.png" alt="KarbonVero" class="brand-img" width="140" height="24" loading="lazy">
+        </picture>
+        <p class="text-sm" style="color:var(--kv-cinza)">© <span id="y"></span> KarbonVero.</p>
       </div>
+      <a href="/" class="text-sm" style="color:var(--kv-azulclaro)">Voltar à Home</a>
     </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent=new Date().getFullYear();
-    const baseByPractice={{pastagem:3.2,ilpf:4.5,reflorestamento:9.0,agrofloresta:5.5}};
-    const biomeFactor={{Amazônia:1.10,Cerrado:1.00,"Mata Atlântica":1.05,Caatinga:0.85,Pampa:0.90,Pantanal:0.95}};
-    const soilFactor={{Arenoso:0.92,Argiloso:1.00,"Gleissolo/Orgânico":1.08}};
-    const aForm=document.getElementById('kv-calc-adv');
-    const a_out_b=document.getElementById('a_tco2_b');
-    const a_out_l=document.getElementById('a_tco2_l');
-    const a_out_d=document.getElementById('a_desc_show');
-    const a_out_r=document.getElementById('a_receita_l');
-    const a_res=document.getElementById('a_result');
-    aForm.addEventListener('submit',(e)=>{{
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Presets por prática + bioma + solo (valores ilustrativos/conservadores)
+    const BASE = {
+      pastagem:     { base: 3.0,  bioma: {cerrado:+0.4,mata:+0.6,amazonia:+0.8,pampa:+0.2,caatinga:+0.1,pantanal:+0.3}, solo:{argiloso:+0.3,arenoso:-0.2,mistos:+0.1} },
+      ilpf:         { base: 4.0,  bioma: {cerrado:+0.5,mata:+0.7,amazonia:+0.9,pampa:+0.2,caatinga:+0.2,pantanal:+0.3}, solo:{argiloso:+0.3,arenoso:-0.1,mistos:+0.1} },
+      reflorestamento:{ base: 8.0, bioma: {cerrado:+0.6,mata:+1.0,amazonia:+1.2,pampa:+0.3,caatinga:+0.2,pantanal:+0.4}, solo:{argiloso:+0.4,arenoso:-0.3,mistos:+0.2} },
+      agrofloresta: { base: 5.0,  bioma: {cerrado:+0.5,mata:+0.8,amazonia:+1.0,pampa:+0.2,caatinga:+0.2,pantanal:+0.3}, solo:{argiloso:+0.2,arenoso:-0.2,mistos:+0.1} },
+    };
+
+    function taxaEfetiva(pratica, bioma, solo, taxaBaseOpt, fracSolo, degr) {
+      // taxa base
+      let t = taxaBaseOpt>0 ? taxaBaseOpt : (BASE[pratica]?.base || 3.0);
+      // ajustes
+      t += (BASE[pratica]?.bioma?.[bioma] || 0);
+      t += (BASE[pratica]?.solo?.[solo] || 0);
+      // degradação de pasto aumenta resposta inicial (apenas pastagem)
+      if (pratica === 'pastagem') {
+        t *= (1 + Math.min(Math.max(degr,0),80)/200); // até +40% se degr=80
+      }
+      // fração do solo não altera taxa total, mas compõe mix informativo (poderia usar p/ incerteza)
+      const fracBiomassa = 1 - Math.min(Math.max(fracSolo,0),1);
+      return { taxa: Math.max(t, 0), fracSolo: Math.min(Math.max(fracSolo,0),1), fracBiomassa };
+    }
+
+    const form = document.getElementById('calc-adv');
+    const box  = document.getElementById('adv-res');
+
+    form.addEventListener('submit', (e)=>{
       e.preventDefault();
-      const area=parseFloat(document.getElementById('a_area').value||'0');
-      const anos=parseInt(document.getElementById('a_anos').value||'0',10);
-      const pratica=document.getElementById('a_pratica').value;
-      const bioma=document.getElementById('a_bioma').value;
-      const solo=document.getElementById('a_solo').value;
-      const preco=parseFloat(document.getElementById('a_preco').value||'0');
-      const fracaoSolo=parseFloat(document.getElementById('a_fracao').value||'0.5');
-      const descontos=parseFloat(document.getElementById('a_desc').value||'0');
-      const mrv=parseFloat(document.getElementById('a_mrv').value||'0');
-      const impl=parseFloat(document.getElementById('a_impl').value||'0');
-      let taxa=parseFloat(document.getElementById('a_taxa').value||'0');
-      if(!taxa){{ const base=baseByPractice[pratica]||0; taxa=base*(biomeFactor[bioma]||1)*(soilFactor[solo]||1); }}
-      if(area<=0||anos<=0||taxa<=0||preco<0) return;
-      const tco2_bruto=area*taxa*anos;
-      const tco2_liq=tco2_bruto*(1-descontos/100);
-      const receita_bruta=tco2_liq*preco;
-      const custos_total=(mrv*anos)+(impl*area);
-      const resultado_liq=receita_bruta-custos_total;
-      a_out_b.textContent=tco2_bruto.toLocaleString('pt-BR',{maximumFractionDigits:2});
-      a_out_d.textContent=`${{descontos.toFixed(0)}}%`;
-      a_out_l.textContent=tco2_liq.toLocaleString('pt-BR',{maximumFractionDigits:2});
-      a_out_r.textContent=resultado_liq.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-      a_res.classList.remove('hidden');
-      a_res.scrollIntoView({{behavior:'smooth',block:'center'}});
-    }});
+      const area = parseFloat(document.getElementById('a_area').value||'0');
+      const anos = parseInt(document.getElementById('a_anos').value||'0',10);
+      const preco= parseFloat(document.getElementById('a_preco').value||'0');
+      const pratica = document.getElementById('a_pratica').value;
+      const bioma   = document.getElementById('a_bioma').value;
+      const solo    = document.getElementById('a_solo').value;
+      const fracSolo= parseFloat(document.getElementById('a_frac_solo').value||'0.5');
+      const taxaOpt = parseFloat(document.getElementById('a_taxa_base').value||'0');
+      const degr    = parseFloat(document.getElementById('a_deg').value||'0');
+      const desc    = parseFloat(document.getElementById('a_desc').value||'0');       // %
+      const custos  = parseFloat(document.getElementById('a_custos').value||'0');     // R$/t
+
+      if(area<=0||anos<=0||preco<0){ return; }
+
+      const { taxa, fracBiomassa } = taxaEfetiva(pratica, bioma, solo, taxaOpt, fracSolo, degr);
+      const bruto_t = area * taxa * anos;
+      const aplic_desc_t = bruto_t * (1 - Math.min(Math.max(desc,0),60)/100);
+      const receita_bruta = aplic_desc_t * preco;
+      const receita_liq   = receita_bruta - (aplic_desc_t * Math.max(custos,0));
+
+      // saída
+      document.getElementById('adv_tco2').textContent   = aplic_desc_t.toLocaleString('pt-BR',{maximumFractionDigits:2});
+      document.getElementById('adv_bruta').textContent  = receita_bruta.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+      document.getElementById('adv_liquida').textContent= receita_liq.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+      document.getElementById('adv_tx').textContent     = `${taxa.toLocaleString('pt-BR',{maximumFractionDigits:2})} tCO₂e/ha/ano (solo ~${(100*(1-fracBiomassa)).toFixed(0)}%)`;
+
+      box.classList.remove('hidden');
+      box.scrollIntoView({behavior:'smooth',block:'start'});
+    });
   </script>
 </body>
 </html>

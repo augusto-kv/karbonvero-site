@@ -1,64 +1,108 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KarbonVero — Preços de carbono</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Preços de referência — KarbonVero</title>
+
+  <!-- SEO -->
+  <link rel="canonical" href="https://www.karbonvero.com/precos.html">
+  <meta name="description" content="Fontes públicas para consulta de preços de referência de créditos de carbono.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:image" content="/kv-badge-512.png">
   <meta name="theme-color" content="#003B73">
-  <style>:root{--kv-azul:#003B73;--kv-cinza:#6E6E6E}.brand-img{height:32px;width:auto}</style>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root{--kv-azul:#003B73;--kv-dourado:#CDA434;--kv-verde:#4B7C38;--kv-cinza:#6E6E6E;--kv-azulclaro:#1E5A96}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    .brand-img{height:28px;width:auto}
+    a.link{color:var(--kv-azulclaro);text-decoration:underline}
+    .note{color:#475569}
+  </style>
 </head>
-<body class="antialiased text-slate-800 bg-white">
+<body class="antialiased bg-white text-slate-800">
+  <!-- Header -->
   <header class="border-b bg-white/80 backdrop-blur">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3"><img src="/assets/logo-flat.svg" alt="KarbonVero" class="brand-img"></a>
-      <a href="/" class="rounded-2xl border px-4 py-2 text-sm" style="border-color:var(--kv-azul);color:var(--kv-azul)">Voltar</a>
+    <div class="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <picture>
+          <source srcset="/logo-wordmark.svg" type="image/svg+xml">
+          <img src="/logo-wordmark.png" alt="KarbonVero" class="brand-img" width="160" height="28">
+        </picture>
+      </a>
+      <a href="/#calculadora" class="text-sm" style="color:var(--kv-azulclaro)">Voltar</a>
     </div>
   </header>
 
-  <section class="py-12">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold" style="color:var(--kv-azul)">Preços de crédito de carbono — referências diárias</h1>
-      <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
-        Os links abaixo mostram preços públicos e atualizados de mercados regulados (ETS). No mercado voluntário (VCM), o preço varia por tipo de projeto, padrão e co-benefícios — use como referência.
-      </p>
+  <!-- Main -->
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 py-10">
+    <h1 class="text-3xl font-bold" style="color:var(--kv-azul)">Preços de referência (mercado voluntário)</h1>
+    <p class="mt-2 text-sm note">
+      Os preços variam por padrão/metodologia, bioma, co-benefícios (ex.: sociais), curva de oferta/demanda e contrato.
+      Use as fontes abaixo como sinal de mercado. Para propostas formais, entre em contato para cotação específica.
+    </p>
 
-      <div class="mt-6 grid gap-4">
-        <a class="rounded-2xl border p-5 hover:shadow transition block" target="_blank" rel="noopener"
-           href="https://tradingeconomics.com/commodity/carbon">
-          <div class="text-sm" style="color:var(--kv-cinza)">Europa (EU ETS)</div>
-          <div class="text-lg font-semibold">EU Carbon Permits (EUA)</div>
-          <div class="text-xs" style="color:var(--kv-cinza)">Fonte: TradingEconomics</div>
-        </a>
+    <section class="mt-6 grid gap-4">
+      <article class="rounded-3xl border p-5 bg-white">
+        <h2 class="font-semibold">Fontes públicas úteis</h2>
+        <ul class="list-disc pl-5 mt-2 text-sm">
+          <li>Índices e relatórios setoriais (busca geral) — <a class="link" href="https://www.google.com/search?q=voluntary+carbon+market+price+index" target="_blank" rel="noopener">pesquisar</a></li>
+          <li>Agregadores/consultorias (preços e tendências) — <a class="link" href="https://www.google.com/search?q=carbon+credit+price+dashboard" target="_blank" rel="noopener">dashboards</a></li>
+          <li>Corretoras/Exchanges (spot/OTC) — ver páginas de produto/FAQ das plataformas em atuação</li>
+        </ul>
+        <p class="mt-2 text-xs note">
+          Dica: ao comparar preços, verifique <em>tipo de crédito</em> (ex.: ARR, IFM, A/R, AFOLU, Energia), <em>ano de emissão</em>,
+          <em>padrão</em> (Verra/Gold Standard etc.), <em>região/bioma</em> e <em>co-benefícios</em>.
+        </p>
+      </article>
 
-        <a class="rounded-2xl border p-5 hover:shadow transition block" target="_blank" rel="noopener"
-           href="https://aegis-hedging.com/insights/cap-and-trade-pricing-through-april-14th-2025">
-          <div class="text-sm" style="color:var(--kv-cinza)">Califórnia (CCA)</div>
-          <div class="text-lg font-semibold">California Carbon Allowances (preços & análises)</div>
-          <div class="text-xs" style="color:var(--kv-cinza)">Fonte: AEGIS</div>
-        </a>
+      <article class="rounded-3xl border p-5 bg-white">
+        <h2 class="font-semibold">Como usar na calculadora</h2>
+        <ol class="list-decimal pl-5 mt-2 text-sm">
+          <li>Abra a fonte de preços e encontre o intervalo que mais se aproxima do seu projeto.</li>
+          <li>Preencha o campo <strong>Preço (R$/tCO₂e)</strong> na calculadora com um valor <em>realista</em> (evite picos).</li>
+          <li>Se o projeto tiver co-benefícios sociais/ambientais relevantes, você pode testar um range ligeiramente superior.</li>
+        </ol>
+        <p class="mt-2 text-xs note">Se quiser, criamos um painel interno com suas fontes favoritas e atualização periódica.</p>
+      </article>
 
-        <a class="rounded-2xl border p-5 hover:shadow transition block" target="_blank" rel="noopener"
-           href="https://ember-energy.org/data/european-electricity-prices-and-costs/">
-          <div class="text-sm" style="color:var(--kv-cinza)">Europa</div>
-          <div class="text-lg font-semibold">Carbon price & energia (visualizador Ember)</div>
-          <div class="text-xs" style="color:var(--kv-cinza)">Fonte: Ember Climate</div>
-        </a>
+      <article class="rounded-3xl border p-5 bg-white">
+        <h2 class="font-semibold">Atenção</h2>
+        <p class="mt-2 text-sm note">
+          Estes valores são apenas referência. Preços firmes dependem de due diligence, metodologia, auditoria (MRV),
+          volume, cronograma e risco do projeto. Fale com a KarbonVero para suporte comercial.
+        </p>
+      </article>
+    </section>
 
-        <a class="rounded-2xl border p-5 hover:shadow transition block" target="_blank" rel="noopener"
-           href="https://sandbag.be/carbon-price-viewer/">
-          <div class="text-sm" style="color:var(--kv-cinza)">Europa</div>
-          <div class="text-lg font-semibold">Carbon Price Viewer (histórico EU ETS)</div>
-          <div class="text-xs" style="color:var(--kv-cinza)">Fonte: Sandbag</div>
-        </a>
-
-        <div class="rounded-2xl border p-5">
-          <div class="text-sm" style="color:var(--kv-cinza)">Mercado voluntário (VCM)</div>
-          <div class="text-lg font-semibold mb-1">Observação</div>
-          <p class="text-sm" style="color:var(--kv-cinza)">Os preços de VCM variam (projeto, padrão, co-benefícios, vintage). Para orçamento real, aplicamos descontos e ajustes no diagnóstico.</p>
-        </div>
-      </div>
+    <div class="mt-6">
+      <a href="/" class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-medium shadow-sm hover:shadow transition" style="border-color:var(--kv-azul);color:var(--kv-azul)">Voltar à Home</a>
     </div>
-  </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t">
+    <div class="mx-auto max-w-6xl px-4 py-8 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <picture>
+          <source srcset="/logo-wordmark.svg" type="image/svg+xml">
+          <img src="/logo-wordmark.png" alt="KarbonVero" class="brand-img" width="140" height="24" loading="lazy">
+        </picture>
+        <p class="text-sm" style="color:var(--kv-cinza)">© <span id="y"></span> KarbonVero.</p>
+      </div>
+      <a href="/#contato" class="text-sm" style="color:var(--kv-azulclaro)">Contato</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

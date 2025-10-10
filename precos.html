@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KarbonVero — Preços de carbono</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32">
+  <meta name="theme-color" content="#003B73">
+  <style>:root{--kv-azul:#003B73;--kv-cinza:#6E6E6E}.brand-img{height:32px;width:auto}</style>
+</head>
+<body class="antialiased text-slate-800 bg-white">
+  <header class="border-b bg-white/80 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3"><img src="/assets/logo-flat.svg" alt="KarbonVero" class="brand-img"></a>
+      <a href="/" class="rounded-2xl border px-4 py-2 text-sm" style="border-color:var(--kv-azul);color:var(--kv-azul)">Voltar</a>
+    </div>
+  </header>
+
+  <section class="py-12">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold" style="color:var(--kv-azul)">Preços de crédito de carbono — referências diárias</h1>
+      <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
+        Os links abaixo mostram preços públicos e atualizados de mercados regulados (ETS). No mercado voluntário (VCM), o preço varia por tipo de projeto, padrão e co-benefícios — use como referência.
+      </p>
+
+      <div class="mt-6 grid gap-4">
+        <a class="rounded-2xl border p-5 hover:shadow transition block" target="_blank" rel="noopener"
+           href="https://tradingeconomics.com/commodity/carbon">
+          <div class="text-sm" style="color:var(--kv-cinza)">Europa (EU ETS)</div>
+          <div class="text-lg font-semibold">EU Carbon Permits (EUA)</div>
+          <div class="text-xs" style="color:var(--kv-cinza)">Fonte: TradingEconomics</div>
+        </a>
+
+        <a class="rounded-2xl border p-5 hover:shadow transition block" target="_blank" rel="noopener"
+           href="https://aegis-hedging.com/insights/cap-and-trade-pricing-through-april-14th-2025">
+          <div class="text-sm" style="color:var(--kv-cinza)">Califórnia (CCA)</div>
+          <div class="text-lg font-semibold">California Carbon Allowances (preços & análises)</div>
+          <div class="text-xs" style="color:var(--kv-cinza)">Fonte: AEGIS</div>
+        </a>
+
+        <a class="rounded-2xl border p-5 hover:shadow transition block" target="_blank" rel="noopener"
+           href="https://ember-energy.org/data/european-electricity-prices-and-costs/">
+          <div class="text-sm" style="color:var(--kv-cinza)">Europa</div>
+          <div class="text-lg font-semibold">Carbon price & energia (visualizador Ember)</div>
+          <div class="text-xs" style="color:var(--kv-cinza)">Fonte: Ember Climate</div>
+        </a>
+
+        <a class="rounded-2xl border p-5 hover:shadow transition block" target="_blank" rel="noopener"
+           href="https://sandbag.be/carbon-price-viewer/">
+          <div class="text-sm" style="color:var(--kv-cinza)">Europa</div>
+          <div class="text-lg font-semibold">Carbon Price Viewer (histórico EU ETS)</div>
+          <div class="text-xs" style="color:var(--kv-cinza)">Fonte: Sandbag</div>
+        </a>
+
+        <div class="rounded-2xl border p-5">
+          <div class="text-sm" style="color:var(--kv-cinza)">Mercado voluntário (VCM)</div>
+          <div class="text-lg font-semibold mb-1">Observação</div>
+          <p class="text-sm" style="color:var(--kv-cinza)">Os preços de VCM variam (projeto, padrão, co-benefícios, vintage). Para orçamento real, aplicamos descontos e ajustes no diagnóstico.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

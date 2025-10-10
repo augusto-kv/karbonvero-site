@@ -1,0 +1,24 @@
+# netlify.toml — KarbonVero (site estático na raiz)
+[build]
+  publish = "."
+  command = ""
+
+# Redirecionamentos limpos (opcional: acessa sem .html)
+[[redirects]]
+  from = "/calculadora"
+  to   = "/calculadora.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/precos"
+  to   = "/precos.html"
+  status = 200
+  force = true
+
+# Segurança básica (opcional)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"

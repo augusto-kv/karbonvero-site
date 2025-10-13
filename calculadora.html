@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Calculadora Avançada — KarbonVero</title>
 
-  <!-- SEO / Social -->
+  <!-- SEO -->
   <link rel="canonical" href="https://www.karbonvero.com/calculadora.html">
-  <meta name="description" content="Calculadora avançada de crédito de carbono: Parâmetros por bioma, tipo de solo, carbono do solo vs biomassa, descontos, MRV e custos.">
+  <meta name="description" content="Calculadora avançada de crédito de carbono: parâmetros por bioma, solo, fração solo/biomassa, descontos, MRV e custos.">
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
@@ -16,9 +16,24 @@
   <meta property="og:image" content="/kv-badge-512.png">
   <meta name="theme-color" content="#003B73">
 
-  <!-- Tailwind -->
+  <!-- Fonts + Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            kvazul:"#003B73", kvdourado:"#CDA434", kvverde:"#4B7C38",
+            kvcinza:"#6E6E6E", kvazulclaro:"#1E5A96"
+          },
+          fontFamily:{ sans:["Inter","system-ui","Segoe UI","Roboto","Helvetica","Arial","sans-serif"] }
+        }
+      }
+    }
+  </script>
   <style>
     :root{--kv-azul:#003B73;--kv-dourado:#CDA434;--kv-verde:#4B7C38;--kv-cinza:#6E6E6E;--kv-azulclaro:#1E5A96}
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
@@ -26,10 +41,11 @@
   </style>
 </head>
 <body class="antialiased bg-white text-slate-800">
-  <!-- Header simples -->
+
+  <!-- Header -->
   <header class="border-b bg-white/80 backdrop-blur">
     <div class="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-3" aria-label="KarbonVero">
         <picture>
           <source srcset="/logo-wordmark.svg" type="image/svg+xml">
           <img src="/logo-wordmark.png" alt="KarbonVero" class="brand-img" width="160" height="28">
@@ -52,7 +68,7 @@
     </p>
 
     <section class="mt-6 grid lg:grid-cols-3 gap-6">
-      <!-- Parâmetros -->
+      <!-- Form -->
       <form id="calc-adv" class="lg:col-span-2 grid gap-4 rounded-3xl border p-6 bg-white shadow-sm">
         <div class="grid md:grid-cols-3 gap-4">
           <div>
@@ -107,7 +123,7 @@
           <div>
             <label class="text-sm font-medium">Fração carbono do solo</label>
             <input id="a_frac_solo" type="number" min="0" max="1" step="0.05" value="0.5" class="w-full rounded-2xl border px-4 py-3">
-            <p class="text-[11px]" style="color:var(--kv-cinza)">0 a 1 (ex.: 0,5 = 50% do sequestro está no solo)</p>
+            <p class="text-[11px]" style="color:var(--kv-cinza)">0 a 1 (ex.: 0,5 = 50% do sequestro no solo)</p>
           </div>
           <div>
             <label class="text-sm font-medium">Taxa base (tCO₂e/ha/ano)</label>
@@ -117,13 +133,13 @@
           <div>
             <label class="text-sm font-medium">Degradação inicial de pasto (%)</label>
             <input id="a_deg" type="number" min="0" max="80" step="1" value="20" class="w-full rounded-2xl border px-4 py-3">
-            <p class="text-[11px]" style="color:var(--kv-cinza)">Só aplicável em pastagem. Aumenta potencial inicial.</p>
+            <p class="text-[11px]" style="color:var(--kv-cinza)">Só para “pastagem”.</p>
           </div>
         </div>
 
         <div class="grid md:grid-cols-3 gap-4">
           <div>
-            <label class="text-sm font-medium">Descontos (risco, vazamentos, buffer) %</label>
+            <label class="text-sm font-medium">Descontos (risco, buffer) %</label>
             <input id="a_desc" type="number" min="0" max="60" step="1" value="15" class="w-full rounded-2xl border px-4 py-3">
           </div>
           <div>
@@ -181,7 +197,7 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Presets por prática + bioma + solo (valores ilustrativos/conservadores)
+    // Presets por prática + bioma + solo (valores ilustrativos)
     const BASE = {
       pastagem:     { base: 3.0,  bioma: {cerrado:+0.4,mata:+0.6,amazonia:+0.8,pampa:+0.2,caatinga:+0.1,pantanal:+0.3}, solo:{argiloso:+0.3,arenoso:-0.2,mistos:+0.1} },
       ilpf:         { base: 4.0,  bioma: {cerrado:+0.5,mata:+0.7,amazonia:+0.9,pampa:+0.2,caatinga:+0.2,pantanal:+0.3}, solo:{argiloso:+0.3,arenoso:-0.1,mistos:+0.1} },
@@ -190,16 +206,12 @@
     };
 
     function taxaEfetiva(pratica, bioma, solo, taxaBaseOpt, fracSolo, degr) {
-      // taxa base
       let t = taxaBaseOpt>0 ? taxaBaseOpt : (BASE[pratica]?.base || 3.0);
-      // ajustes
       t += (BASE[pratica]?.bioma?.[bioma] || 0);
       t += (BASE[pratica]?.solo?.[solo] || 0);
-      // degradação de pasto aumenta resposta inicial (apenas pastagem)
       if (pratica === 'pastagem') {
         t *= (1 + Math.min(Math.max(degr,0),80)/200); // até +40% se degr=80
       }
-      // fração do solo não altera taxa total, mas compõe mix informativo (poderia usar p/ incerteza)
       const fracBiomassa = 1 - Math.min(Math.max(fracSolo,0),1);
       return { taxa: Math.max(t, 0), fracSolo: Math.min(Math.max(fracSolo,0),1), fracBiomassa };
     }
@@ -218,22 +230,21 @@
       const fracSolo= parseFloat(document.getElementById('a_frac_solo').value||'0.5');
       const taxaOpt = parseFloat(document.getElementById('a_taxa_base').value||'0');
       const degr    = parseFloat(document.getElementById('a_deg').value||'0');
-      const desc    = parseFloat(document.getElementById('a_desc').value||'0');       // %
-      const custos  = parseFloat(document.getElementById('a_custos').value||'0');     // R$/t
+      const desc    = parseFloat(document.getElementById('a_desc').value||'0');
+      const custos  = parseFloat(document.getElementById('a_custos').value||'0');
 
       if(area<=0||anos<=0||preco<0){ return; }
 
-      const { taxa, fracBiomassa } = taxaEfetiva(pratica, bioma, solo, taxaOpt, fracSolo, degr);
+      const { taxa } = taxaEfetiva(pratica, bioma, solo, taxaOpt, fracSolo, degr);
       const bruto_t = area * taxa * anos;
       const aplic_desc_t = bruto_t * (1 - Math.min(Math.max(desc,0),60)/100);
       const receita_bruta = aplic_desc_t * preco;
       const receita_liq   = receita_bruta - (aplic_desc_t * Math.max(custos,0));
 
-      // saída
       document.getElementById('adv_tco2').textContent   = aplic_desc_t.toLocaleString('pt-BR',{maximumFractionDigits:2});
       document.getElementById('adv_bruta').textContent  = receita_bruta.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-      document.getElementById('adv_liquida').textContent= receita_liq.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-      document.getElementById('adv_tx').textContent     = `${taxa.toLocaleString('pt-BR',{maximumFractionDigits:2})} tCO₂e/ha/ano (solo ~${(100*(1-fracBiomassa)).toFixed(0)}%)`;
+      document.getElementById('adv_liquida').textContent= receita_liq.toLocaleString('pt-BR',{style:'currency','currency':'BRL'});
+      document.getElementById('adv_tx').textContent     = `${taxa.toLocaleString('pt-BR',{maximumFractionDigits:2})} tCO₂e/ha/ano`;
 
       box.classList.remove('hidden');
       box.scrollIntoView({behavior:'smooth',block:'start'});

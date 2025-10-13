@@ -50,49 +50,7 @@
       }
     }
   </script>
-/* Container geral dos 3 blocos */
-.info-cards {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap; /* permite quebrar em várias linhas */
-  gap: 1rem;
-  padding: 1rem;
-}
 
-/* Cada card individual */
-.info-card {
-  flex: 1 1 200px; /* base mínima de 200px e cresce conforme espaço */
-  min-width: 160px;
-  max-width: 300px;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 1rem;
-  color: #fff;
-}
-
-/* Textos internos */
-.info-card h3 {
-  font-size: clamp(1rem, 2.5vw, 1.4rem); /* ajusta dinamicamente */
-}
-
-.info-card p {
-  font-size: clamp(0.8rem, 2vw, 1rem);
-}
-
-/* Ajustes para telas pequenas */
-@media (max-width: 600px) {
-  .info-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .info-card {
-    width: 90%;
-  }
-}
-  
   <!-- ==================== Estilos locais ==================== -->
   <style>
     :root{

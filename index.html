@@ -2,16 +2,9 @@
 <html lang="pt-br">
 <head>
   <!-- =========================================================
-       KarbonVero — index.html (GitHub Pages)
-       - Logos oficiais (SVG + PNG) via <picture>
-       - Marca d’água no hero (logo-watermark.png)
-       - Calculadora simplificada + link para avançada (/calculadora.html)
-       - Link “Ver preços hoje” (/precos.html)
-       - Formulário (mailto:) — funciona no Pages
-       - Favicons + Apple Touch + OG (gerados a partir do seu logo)
-       - Tailwind via CDN (com CSS local de fallback)
+       KarbonVero — index.html
+       Última revisão: 2025-10
        ========================================================= -->
-
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -19,20 +12,19 @@
 
   <!-- ==================== SEO / Social ==================== -->
   <link rel="canonical" href="https://www.karbonvero.com/">
-  <meta name="description" content="KarbonVero: conectamos produtores rurais ao mercado de carbono com simplicidade, transparência e impacto real.">
-  <meta name="keywords" content="crédito de carbono, agro, pecuária, ILPF, reflorestamento, MRV, mercado de carbono, carbono do solo, biomassa">
+  <meta name="description" content="KarbonVero: conectamos produtores rurais ao mercado de carbono. Diagnóstico, projeto, MRV e go-to-market com transparência e impacto real.">
+  <meta name="keywords" content="KarbonVero, crédito de carbono, agro, ILPF, reflorestamento, MRV, carbono do solo, biomassa, sustentabilidade, pecuária, pastagem, eucalipto">
+  <meta name="author" content="KarbonVero">
   <meta property="og:title" content="KarbonVero — Sua terra vale mais quando é verde.">
-  <meta property="og:description" content="Crédito de carbono simples para pequenos e médios produtores. Diagnóstico, projeto, MRV e go-to-market.">
+  <meta property="og:description" content="Crédito de carbono simples para pequenos e médios produtores.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:image" content="/kv-badge-512.png">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- ==================== Favicons / PWA ==================== -->
-  <!-- (Opcional: favicon SVG moderno do emblema) -->
-  <!-- <link rel="icon" href="/logo-mark.svg" type="image/svg+xml"> -->
-  <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="/favicon-16.png" sizes="16x16">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#003B73">
 
@@ -51,33 +43,41 @@
             kvazul:"#003B73", kvdourado:"#CDA434", kvverde:"#4B7C38",
             kvcinza:"#6E6E6E", kvazulclaro:"#1E5A96"
           },
-          fontFamily:{ sans:["Inter","system-ui","Segoe UI","Roboto","Helvetica","Arial","sans-serif"] },
-          boxShadow:{ "kv-ring":"inset 0 0 0 1px rgba(0,0,0,.04)" }
+          fontFamily:{ sans:["Inter","system-ui","-apple-system","Segoe UI","Roboto","Helvetica","Arial","sans-serif"] },
+          boxShadow:{ "kv-ring":"inset 0 0 0 1px rgba(0,0,0,.04)" },
+          borderRadius:{ "3xl":"1.5rem" }
         }
       }
     }
   </script>
 
-  <!-- ==================== Estilos locais (fallback) ==================== -->
+  <!-- ==================== Estilos locais ==================== -->
   <style>
     :root{
       --kv-azul:#003B73; --kv-dourado:#CDA434; --kv-verde:#4B7C38;
       --kv-cinza:#6E6E6E; --kv-azulclaro:#1E5A96;
     }
+    html{scroll-behavior:smooth}
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    .kv-gradient-hero{background:linear-gradient(120deg,var(--kv-azul) 0%,var(--kv-azulclaro) 45%,var(--kv-dourado) 100%)}
-    .glass{background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.58));backdrop-filter:blur(8px)}
-    .ring-kv{box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
+    .kv-gradient-hero{
+      background:linear-gradient(120deg,var(--kv-azul) 0%,var(--kv-azulclaro) 55%,var(--kv-dourado) 100%);
+    }
     .hero-watermark{
       position:absolute;inset:0;pointer-events:none;
-      background-repeat:no-repeat;background-position:85% 40%;
-      background-size:min(42vw,520px);opacity:.12;
-      background-image:url('/logo-watermark.png')
+      background-repeat:no-repeat;background-position:85% 35%;
+      background-size:min(44vw,540px);opacity:.10;
+      /* Use sua marca d'água se existir; senão, comente a linha abaixo */
+      background-image:url('/logo-watermark.png');
     }
     .brand-img{height:32px;width:auto;display:block}
     .brand-img--footer{height:24px;width:auto;display:block}
-    /* Utilitário: se Tailwind não carregar, pelo menos impede quebra visual */
-    ._container{max-width:80rem;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
+    .glass{background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.58));backdrop-filter:blur(8px)}
+    .ring-kv{box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+    /* Fade-in suave */
+    .fade-in{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+    /* Ajuste de espaços em nomes de arquivos para CSS (não usado, mas referência) */
+    .cover-img{object-fit:cover}
   </style>
 </head>
 
@@ -92,7 +92,7 @@
         <a href="/" class="flex items-center gap-3" aria-label="KarbonVero">
           <picture>
             <source srcset="/logo-wordmark.svg" type="image/svg+xml">
-            <img src="/logo-wordmark.png" alt="KarbonVero" class="brand-img" width="180" height="32" loading="eager" decoding="async">
+            <img src="/logo-wordmark.png" alt="KarbonVero" class="brand-img" width="180" height="32" decoding="async">
           </picture>
         </a>
 
@@ -111,9 +111,8 @@
             class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-medium shadow-sm hover:shadow transition"
             style="border-color:var(--kv-azul);color:var(--kv-azul)">WhatsApp</button>
 
-          <a href="#contato"
-             class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-medium shadow-sm hover:shadow transition"
-             style="border-color:var(--kv-azul);color:var(--kv-azul)">Fale com a KarbonVero</a>
+          <a href="/calculadora.html" class="hidden sm:inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-medium shadow-sm hover:shadow transition"
+             style="border-color:var(--kv-dourado);color:var(--kv-dourado)">Calculadora Avançada</a>
         </div>
       </div>
     </div>
@@ -123,7 +122,7 @@
        HERO
        ========================================================= -->
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10 kv-gradient-hero opacity-95" aria-hidden="true"></div>
+    <div class="absolute inset-0 -z-10 kv-gradient-hero opacity-95"></div>
     <div class="hero-watermark" aria-hidden="true"></div>
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-white">
@@ -152,14 +151,14 @@
         <div class="glass rounded-3xl p-6 shadow-xl ring-kv">
           <img class="aspect-video w-full rounded-2xl object-cover"
                alt="Área rural com ILPF"
-               src="https://source.unsplash.com/featured/?agriculture,forest,pasture">
+               src="/ILPF.png">
           <div class="mt-4 grid grid-cols-3 gap-3 text-center">
             <div class="rounded-2xl border p-4 border-white/40">
               <div class="text-2xl font-bold">Processos</div>
               <div class="text-xs text-white/90">padronizados</div>
             </div>
             <div class="rounded-2xl border p-4 border-white/40">
-              <div class="text-1,5xl font-bold">Transparência</div>
+              <div class="text-2xl font-bold">Transparência</div>
               <div class="text-xs text-white/90">e rastreabilidade</div>
             </div>
             <div class="rounded-2xl border p-4 border-white/40">
@@ -173,7 +172,7 @@
   </section>
 
   <!-- =========================================================
-       SERVIÇOS
+       SERVIÇOS (cards)
        ========================================================= -->
   <section id="servicos" class="py-16 border-t">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -185,9 +184,9 @@
       <div class="mt-8 grid gap-6 md:grid-cols-3">
         <!-- Card 1 -->
         <div class="rounded-3xl border p-6 shadow-sm hover:shadow transition bg-white">
-          <img class="w-full h-40 object-cover rounded-xl mb-4"
-               alt="Diagnóstico de áreas"
-               src="https://source.unsplash.com/featured/?satellite,map,landscape">
+          <img class="w-full h-44 object-cover rounded-xl mb-4"
+               alt="Diagnóstico de Potencial"
+               src="/Diagnostico%20de%20potencial.png">
           <h3 class="font-semibold" style="color:var(--kv-azulclaro)">Diagnóstico de Potencial</h3>
           <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
             Levantamento inicial de aptidão (pastagens, ILPF, reflorestamento), estimativas e elegibilidade.
@@ -201,9 +200,9 @@
 
         <!-- Card 2 -->
         <div class="rounded-3xl border p-6 shadow-sm hover:shadow transition bg-white">
-          <img class="w-full h-40 object-cover rounded-xl mb-4"
+          <img class="w-full h-44 object-cover rounded-xl mb-4"
                alt="Projeto e MRV"
-               src="https://source.unsplash.com/featured/?forest,measuring,carbon">
+               src="/Projeto%20e%20MRV.png">
           <h3 class="font-semibold" style="color:var(--kv-azulclaro)">Projeto &amp; MRV</h3>
           <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
             Desenho técnico, protocolos de monitoramento, relato e verificação conforme metodologias.
@@ -217,9 +216,9 @@
 
         <!-- Card 3 -->
         <div class="rounded-3xl border p-6 shadow-sm hover:shadow transition bg-white">
-          <img class="w-full h-40 object-cover rounded-xl mb-4"
-               alt="Go to market carbono"
-               src="https://source.unsplash.com/featured/?handshake,market,business">
+          <img class="w-full h-44 object-cover rounded-xl mb-4"
+               alt="Go to market"
+               src="/Go-to-market.png">
           <h3 class="font-semibold" style="color:var(--kv-azulclaro)">Go-to-Market</h3>
           <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
             Conexão com compradores, documentação e negociação para emissão ou venda.
@@ -245,19 +244,19 @@
       </div>
 
       <div class="mt-10 grid gap-6 md:grid-cols-3">
-        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv">
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv fade-in">
           <div class="text-xs font-semibold" style="color:var(--kv-verde)">Etapa 1</div>
           <h3 class="mt-1 font-semibold">Descoberta</h3>
           <p class="mt-2 text-sm" style="color:var(--kv-cinza)">Objetivos, áreas e dados básicos. Pré-estimativa de potencial.</p>
         </div>
 
-        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv">
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv fade-in">
           <div class="text-xs font-semibold" style="color:var(--kv-verde)">Etapa 2</div>
           <h3 class="mt-1 font-semibold">Projeto</h3>
           <p class="mt-2 text-sm" style="color:var(--kv-cinza)">Plano técnico e MRV simplificado com auditoria em mente.</p>
         </div>
 
-        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv">
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv fade-in">
           <div class="text-xs font-semibold" style="color:var(--kv-verde)">Etapa 3</div>
           <h3 class="mt-1 font-semibold">Mercado</h3>
           <p class="mt-2 text-sm" style="color:var(--kv-cinza)">Documentação, conexão e negociação com compradores.</p>
@@ -267,7 +266,7 @@
   </section>
 
   <!-- =========================================================
-       CASES
+       CASES (exemplos ilustrativos)
        ========================================================= -->
   <section id="cases" class="py-16 border-t">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -277,26 +276,26 @@
       </div>
 
       <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <article class="rounded-3xl border p-6 bg-white">
+        <article class="rounded-3xl border p-6 bg-white fade-in">
           <img class="w-full h-36 object-cover rounded-xl mb-4"
                alt="Pastagem recuperada"
-               src="https://source.unsplash.com/featured/?pasture,cattle,green">
+               src="/Pastagem%20recuperada.png">
           <p class="text-sm text-slate-700">“Roadmap claro, documentação organizada e negociação sem dor de cabeça.”</p>
           <div class="mt-4 text-xs" style="color:var(--kv-cinza)">Produtor A • Pecuária</div>
         </article>
 
-        <article class="rounded-3xl border p-6 bg-white">
+        <article class="rounded-3xl border p-6 bg-white fade-in">
           <img class="w-full h-36 object-cover rounded-xl mb-4"
-               alt="ILPF"
-               src="https://source.unsplash.com/featured/?agroforestry,trees,crops">
+               alt="ILPF com eucalipto"
+               src="/ILPF.png">
           <p class="text-sm text-slate-700">“Viabilidade realista e suporte no MRV fizeram a diferença.”</p>
           <div class="mt-4 text-xs" style="color:var(--kv-cinza)">Produtor B • ILPF</div>
         </article>
 
-        <article class="rounded-3xl border p-6 bg-white">
+        <article class="rounded-3xl border p-6 bg-white fade-in">
           <img class="w-full h-36 object-cover rounded-xl mb-4"
                alt="Reflorestamento"
-               src="https://source.unsplash.com/featured/?reforestation,seedling">
+               src="/Reflorestamento.png">
           <p class="text-sm text-slate-700">“Estimativas conservadoras e transparência em cada etapa.”</p>
           <div class="mt-4 text-xs" style="color:var(--kv-cinza)">Produtor C • Reflorestamento</div>
         </article>
@@ -394,7 +393,7 @@
       <h2 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Contato</h2>
       <p class="mt-2" style="color:var(--kv-cinza)">Preencha o formulário e retornaremos em breve.</p>
 
-      <!-- Formulário: mailto (funciona no GitHub Pages). Troco para Formspree quando quiser. -->
+      <!-- Formulário: mailto (funciona no GitHub Pages). -->
       <form action="mailto:contato@karbonvero.com" method="post" enctype="text/plain" class="mt-8 grid gap-4">
         <div class="grid sm:grid-cols-2 gap-4">
           <input type="text" name="nome" placeholder="Seu nome" class="w-full rounded-2xl border px-4 py-3" required>
@@ -406,7 +405,9 @@
         <p class="text-xs" style="color:var(--kv-cinza)">Ao enviar, você concorda com nossa política de privacidade.</p>
       </form>
 
-      <div class="mt-4 text-sm" style="color:var(--kv-cinza)">contato@karbonvero.com</div>
+      <div class="mt-4 text-sm" style="color:var(--kv-cinza)">
+        Ou fale direto no WhatsApp: <a href="https://wa.me/5515997353773" target="_blank" class="underline" style="color:var(--kv-azulclaro)">+55 (15) 99735-3773</a>
+      </div>
     </div>
   </section>
 
@@ -442,6 +443,14 @@
       const text = encodeURIComponent('Olá! Quero estimar meu potencial de crédito de carbono com a KarbonVero.');
       window.open('https://wa.me/5515997353773?text=' + text, '_blank');
     });
+
+    // Aplica fade-in quando os elementos entram na viewport
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    },{threshold:.15});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
     // Presets por prática + cálculo simplificado
     (function(){

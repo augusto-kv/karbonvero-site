@@ -7,7 +7,7 @@
 
   <!-- SEO -->
   <link rel="canonical" href="https://www.karbonvero.com/precos.html">
-  <meta name="description" content="Fontes públicas para consulta de preços de referência de créditos de carbono.">
+  <meta name="description" content="Fontes públicas e orientação para consulta de preços de referência no mercado voluntário de carbono.">
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
@@ -16,9 +16,24 @@
   <meta property="og:image" content="/kv-badge-512.png">
   <meta name="theme-color" content="#003B73">
 
-  <!-- Tailwind -->
+  <!-- Fonts + Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            kvazul:"#003B73", kvdourado:"#CDA434", kvverde:"#4B7C38",
+            kvcinza:"#6E6E6E", kvazulclaro:"#1E5A96"
+          },
+          fontFamily:{ sans:["Inter","system-ui","Segoe UI","Roboto","Helvetica","Arial","sans-serif"] }
+        }
+      }
+    }
+  </script>
   <style>
     :root{--kv-azul:#003B73;--kv-dourado:#CDA434;--kv-verde:#4B7C38;--kv-cinza:#6E6E6E;--kv-azulclaro:#1E5A96}
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
@@ -37,7 +52,7 @@
           <img src="/logo-wordmark.png" alt="KarbonVero" class="brand-img" width="160" height="28">
         </picture>
       </a>
-      <a href="/#calculadora" class="text-sm" style="color:var(--kv-azulclaro)">Voltar</a>
+      <a href="/#calculadora" class="text-sm" style="color:var(--kv-azulclaro)">Voltar à Calculadora</a>
     </div>
   </header>
 
@@ -45,32 +60,31 @@
   <main class="mx-auto max-w-3xl px-4 sm:px-6 py-10">
     <h1 class="text-3xl font-bold" style="color:var(--kv-azul)">Preços de referência (mercado voluntário)</h1>
     <p class="mt-2 text-sm note">
-      Os preços variam por padrão/metodologia, bioma, co-benefícios (ex.: sociais), curva de oferta/demanda e contrato.
-      Use as fontes abaixo como sinal de mercado. Para propostas formais, entre em contato para cotação específica.
+      Os preços variam por padrão/metodologia, bioma, co-benefícios (ex.: sociais), oferta/demanda e condições contratuais.
+      Use as fontes abaixo como <em>sinal</em> de mercado. Para propostas firmes, fale com a KarbonVero.
     </p>
 
     <section class="mt-6 grid gap-4">
       <article class="rounded-3xl border p-5 bg-white">
         <h2 class="font-semibold">Fontes públicas úteis</h2>
         <ul class="list-disc pl-5 mt-2 text-sm">
-          <li>Índices e relatórios setoriais (busca geral) — <a class="link" href="https://www.google.com/search?q=voluntary+carbon+market+price+index" target="_blank" rel="noopener">pesquisar</a></li>
-          <li>Agregadores/consultorias (preços e tendências) — <a class="link" href="https://www.google.com/search?q=carbon+credit+price+dashboard" target="_blank" rel="noopener">dashboards</a></li>
-          <li>Corretoras/Exchanges (spot/OTC) — ver páginas de produto/FAQ das plataformas em atuação</li>
+          <li>Índices e relatórios setoriais — <a class="link" href="https://www.google.com/search?q=voluntary+carbon+market+price+index" target="_blank" rel="noopener">pesquisar</a></li>
+          <li>Dashboards de preço e tendências — <a class="link" href="https://www.google.com/search?q=carbon+credit+price+dashboard" target="_blank" rel="noopener">ver opções</a></li>
+          <li>Plataformas/Exchanges — ver páginas de produto e FAQ das corretoras ativas</li>
         </ul>
         <p class="mt-2 text-xs note">
-          Dica: ao comparar preços, verifique <em>tipo de crédito</em> (ex.: ARR, IFM, A/R, AFOLU, Energia), <em>ano de emissão</em>,
-          <em>padrão</em> (Verra/Gold Standard etc.), <em>região/bioma</em> e <em>co-benefícios</em>.
+          Ao comparar preços, verifique <em>tipo de crédito</em> (AFOLU/ARR/IFM etc.), <em>vintage</em>, <em>padrão</em> (Verra/GS), <em>região/bioma</em> e <em>co-benefícios</em>.
         </p>
       </article>
 
       <article class="rounded-3xl border p-5 bg-white">
         <h2 class="font-semibold">Como usar na calculadora</h2>
         <ol class="list-decimal pl-5 mt-2 text-sm">
-          <li>Abra a fonte de preços e encontre o intervalo que mais se aproxima do seu projeto.</li>
-          <li>Preencha o campo <strong>Preço (R$/tCO₂e)</strong> na calculadora com um valor <em>realista</em> (evite picos).</li>
-          <li>Se o projeto tiver co-benefícios sociais/ambientais relevantes, você pode testar um range ligeiramente superior.</li>
+          <li>Abra uma fonte de preços e encontre o intervalo mais próximo do seu projeto.</li>
+          <li>Preencha o campo <strong>Preço (R$/tCO₂e)</strong> na calculadora com um valor realista.</li>
+          <li>Se houver co-benefícios relevantes, você pode testar um range ligeiramente superior.</li>
         </ol>
-        <p class="mt-2 text-xs note">Se quiser, criamos um painel interno com suas fontes favoritas e atualização periódica.</p>
+        <p class="mt-2 text-xs note">Se quiser, montamos um painel interno com as suas fontes favoritas.</p>
       </article>
 
       <article class="rounded-3xl border p-5 bg-white">

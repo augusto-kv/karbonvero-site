@@ -199,10 +199,10 @@
 
     // Presets por prática + bioma + solo (valores ilustrativos)
     const BASE = {
-      pastagem:     { base: 3.0,  bioma: {cerrado:+0.4,mata:+0.6,amazonia:+0.8,pampa:+0.2,caatinga:+0.1,pantanal:+0.3}, solo:{argiloso:+0.3,arenoso:-0.2,mistos:+0.1} },
-      ilpf:         { base: 4.0,  bioma: {cerrado:+0.5,mata:+0.7,amazonia:+0.9,pampa:+0.2,caatinga:+0.2,pantanal:+0.3}, solo:{argiloso:+0.3,arenoso:-0.1,mistos:+0.1} },
-      reflorestamento:{ base: 8.0, bioma: {cerrado:+0.6,mata:+1.0,amazonia:+1.2,pampa:+0.3,caatinga:+0.2,pantanal:+0.4}, solo:{argiloso:+0.4,arenoso:-0.3,mistos:+0.2} },
-      agrofloresta: { base: 5.0,  bioma: {cerrado:+0.5,mata:+0.8,amazonia:+1.0,pampa:+0.2,caatinga:+0.2,pantanal:+0.3}, solo:{argiloso:+0.2,arenoso:-0.2,mistos:+0.1} },
+      pastagem:     { base: 4.0,  bioma: {cerrado:+0.4,mata:+0.6,amazonia:+0.8,pampa:+0.2,caatinga:+0.1,pantanal:+0.3}, solo:{argiloso:+0.3,arenoso:-0.2,mistos:+0.1} },
+      ilpf:         { base: 8.0,  bioma: {cerrado:+0.5,mata:+0.7,amazonia:+0.9,pampa:+0.2,caatinga:+0.2,pantanal:+0.3}, solo:{argiloso:+0.3,arenoso:-0.1,mistos:+0.1} },
+      reflorestamento:{ base: 12.0, bioma: {cerrado:+0.6,mata:+1.0,amazonia:+1.2,pampa:+0.3,caatinga:+0.2,pantanal:+0.4}, solo:{argiloso:+0.4,arenoso:-0.3,mistos:+0.2} },
+      agrofloresta: { base: 9.0,  bioma: {cerrado:+0.5,mata:+0.8,amazonia:+1.0,pampa:+0.2,caatinga:+0.2,pantanal:+0.3}, solo:{argiloso:+0.2,arenoso:-0.2,mistos:+0.1} },
     };
 
     function taxaEfetiva(pratica, bioma, solo, taxaBaseOpt, fracSolo, degr) {

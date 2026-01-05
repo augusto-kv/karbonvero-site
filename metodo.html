@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <!-- =========================================================
+       KarbonVero — metodo.html
+       Revisão: 2026-01 (página curta, direta, premium)
+       ========================================================= -->
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <title>Método KarbonVero — Carbono começa no campo</title>
+
+  <!-- ==================== SEO / Social ==================== -->
+  <link rel="canonical" href="https://www.karbonvero.com/metodo.html">
+  <meta name="description" content="Método KarbonVero: diagnóstico do ecossistema, estruturação técnica e MRV para construir crédito de carbono com integridade, rastreabilidade e suporte à certificação e mercado.">
+  <meta name="keywords" content="KarbonVero, método, crédito de carbono, diagnóstico, ecossistema, MRV, rastreabilidade, certificação, auditoria">
+  <meta name="author" content="KarbonVero">
+
+  <meta property="og:title" content="Método KarbonVero — Carbono começa no campo">
+  <meta property="og:description" content="Diagnóstico do ecossistema + estruturação técnica + MRV auditável. Um método para construir crédito de carbono defensável.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="/kv-badge-512.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ==================== Favicons / PWA ==================== -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#003B73">
+
+  <!-- ==================== Fontes ==================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ==================== Tailwind (CDN) ==================== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            kvazul:"#003B73", kvdourado:"#CDA434", kvverde:"#4B7C38",
+            kvcinza:"#6E6E6E", kvazulclaro:"#1E5A96"
+          },
+          fontFamily:{ sans:["Inter","system-ui","-apple-system","Segoe UI","Roboto","Helvetica","Arial","sans-serif"] },
+          borderRadius:{ "3xl":"1.5rem" }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root{
+      --kv-azul:#003B73; --kv-dourado:#CDA434; --kv-verde:#4B7C38;
+      --kv-cinza:#6E6E6E; --kv-azulclaro:#1E5A96;
+      --kv-paper:#FAF9F7;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    .kv-gradient-hero{
+      background:linear-gradient(120deg,var(--kv-azul) 0%,var(--kv-azulclaro) 55%,var(--kv-dourado) 100%);
+    }
+    .hero-watermark{
+      position:absolute;inset:0;pointer-events:none;
+      background-repeat:no-repeat;background-position:85% 35%;
+      background-size:min(44vw,540px);opacity:.10;
+      background-image:url('/logo-wordmark.png');
+    }
+    .brand-img{height:32px;width:auto;display:block}
+    .brand-img--footer{height:24px;width:auto;display:block}
+    .glass{
+      background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.52));
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.35);
+    }
+    .fade-in{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+
+<body class="antialiased text-slate-800 bg-[#FAF9F7]">
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur shadow-sm">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="/" class="flex items-center gap-3" aria-label="KarbonVero">
+          <picture>
+            <source srcset="/logo-wordmark.svg" type="image/svg+xml">
+            <img src="/logo-wordmark.png" alt="KarbonVero" class="brand-img" width="180" height="32" decoding="async">
+          </picture>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="/" class="hover:text-slate-900 text-slate-600">Início</a>
+          <a href="#metodo" class="hover:text-slate-900 text-slate-600">O método</a>
+          <a href="#principios" class="hover:text-slate-900 text-slate-600">Princípios</a>
+          <a href="#entregaveis" class="hover:text-slate-900 text-slate-600">Entregáveis</a>
+          <a href="#faq" class="hover:text-slate-900 text-slate-600">FAQ</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <button id="wa"
+            class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold hover:shadow transition"
+            style="border-color:rgba(0,59,115,.35);color:var(--kv-azul)">WhatsApp</button>
+          <a href="/#contato" class="hidden sm:inline-flex items-center justify-center rounded-2xl px-4 py-2 text-sm font-semibold shadow hover:opacity-90"
+             style="background:var(--kv-dourado);color:#141414">Iniciar diagnóstico</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 kv-gradient-hero opacity-95"></div>
+    <div class="hero-watermark" aria-hidden="true"></div>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-20 text-white">
+      <div class="grid gap-10 md:grid-cols-2 md:items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold bg-white/10"
+               style="border-color:rgba(255,255,255,.25);">
+            <span class="inline-block h-2 w-2 rounded-full" style="background:var(--kv-verde)"></span>
+            Método KarbonVero
+          </div>
+
+          <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+            Carbono começa no campo.
+          </h1>
+
+          <p class="mt-4 text-lg text-white/90">
+            Um método para transformar dados do ecossistema em um projeto de carbono defensável:
+            diagnóstico, estruturação técnica, MRV auditável e suporte à certificação e mercado.
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="/#contato" class="rounded-2xl px-5 py-3 font-semibold shadow hover:opacity-90"
+               style="background:var(--kv-dourado);color:#141414">Iniciar diagnóstico</a>
+            <a href="#metodo" class="rounded-2xl border px-5 py-3 font-semibold hover:shadow"
+               style="border-color:rgba(255,255,255,.6);color:white">Ver etapas</a>
+          </div>
+
+          <div class="mt-6 text-xs text-white/80">
+            Sem “número bonito” sem base • Rastreabilidade • Auditoria em mente desde o início
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl p-6 shadow-xl">
+          <div class="text-sm font-semibold" style="color: rgba(0,59,115,0.85);">
+            O que o método evita
+          </div>
+          <ul class="mt-3 space-y-2 text-sm" style="color: rgba(0,59,115,0.80);">
+            <li>• Promessas sem diagnóstico</li>
+            <li>• Projetos sem trilha de evidências</li>
+            <li>• MRV improvisado que quebra na auditoria</li>
+            <li>• Estruturação sem visão de custos e riscos</li>
+          </ul>
+
+          <div class="mt-4 rounded-2xl border p-4 bg-white/60 backdrop-blur-md"
+               style="border-color: rgba(0,59,115,0.18);">
+            <div class="text-xs font-semibold" style="color: var(--kv-verde);">Essência</div>
+            <div class="mt-1 text-lg font-bold" style="color: var(--kv-azul);">
+              Integridade antes de monetização.
+            </div>
+            <div class="mt-1 text-sm" style="color: var(--kv-cinza);">
+              Carbono é consequência de um projeto bem estruturado.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O MÉTODO -->
+  <section id="metodo" class="py-16 border-t border-black/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight" style="color:var(--kv-azul)">O Método KarbonVero</h2>
+        <p class="mt-3 text-base md:text-lg" style="color:var(--kv-cinza)">
+          Uma sequência simples (e auditável): do campo ao crédito, com decisões baseadas em dados, risco e viabilidade.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <div class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm hover:shadow-md transition fade-in">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">Etapa 1</div>
+          <h3 class="mt-1 text-lg font-semibold">Diagnóstico do ecossistema</h3>
+          <p class="mt-2 text-sm leading-relaxed" style="color:var(--kv-cinza)">
+            Recorte de áreas, histórico, práticas e dados mínimos. Identificamos elegibilidade, riscos e “pontos de prova” do projeto.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm hover:shadow-md transition fade-in">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">Etapa 2</div>
+          <h3 class="mt-1 text-lg font-semibold">Estruturação técnica &amp; MRV</h3>
+          <p class="mt-2 text-sm leading-relaxed" style="color:var(--kv-cinza)">
+            Definimos metodologia, baseline e adicionalidade, e montamos MRV com trilha de evidências pensada para auditoria.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm hover:shadow-md transition fade-in">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">Etapa 3</div>
+          <h3 class="mt-1 text-lg font-semibold">Certificação &amp; mercado</h3>
+          <p class="mt-2 text-sm leading-relaxed" style="color:var(--kv-cinza)">
+            Documentação para verificação e due diligence, estratégia de emissão/venda e suporte comercial conforme estágio do projeto.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 text-xs" style="color:var(--kv-cinza)">
+        Nota: a viabilidade final depende do diagnóstico, metodologia aplicável, custos de MRV/certificação e riscos do projeto.
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCÍPIOS -->
+  <section id="principios" class="py-16 border-t border-black/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight" style="color:var(--kv-azul)">Princípios do método</h2>
+        <p class="mt-3 text-base md:text-lg" style="color:var(--kv-cinza)">
+          O que torna um projeto defensável não é “promessa”: é critério, evidência e execução.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <div class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm hover:shadow-md transition fade-in">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">1</div>
+          <h3 class="mt-1 text-lg font-semibold" style="color:var(--kv-azul)">Critério</h3>
+          <p class="mt-2 text-sm leading-relaxed" style="color:var(--kv-cinza)">
+            Elegibilidade, adicionalidade e riscos vêm antes de qualquer estimativa.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm hover:shadow-md transition fade-in">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">2</div>
+          <h3 class="mt-1 text-lg font-semibold" style="color:var(--kv-azul)">Evidência</h3>
+          <p class="mt-2 text-sm leading-relaxed" style="color:var(--kv-cinza)">
+            Trilhas de evidência e documentação organizada para auditoria e due diligence.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm hover:shadow-md transition fade-in">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">3</div>
+          <h3 class="mt-1 text-lg font-semibold" style="color:var(--kv-azul)">Execução</h3>
+          <p class="mt-2 text-sm leading-relaxed" style="color:var(--kv-cinza)">
+            Roadmap por etapas para reduzir risco, controlar custo e manter consistência do MRV.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTREGÁVEIS -->
+  <section id="entregaveis" class="py-16 border-t border-black/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight" style="color:var(--kv-azul)">Entregáveis típicos</h2>
+        <p class="mt-3 text-base md:text-lg" style="color:var(--kv-cinza)">
+          O que você recebe varia por projeto, mas o “núcleo” do método é constante.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <div class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm hover:shadow-md transition fade-in">
+          <h3 class="text-lg font-semibold" style="color:var(--kv-azul)">Diagnóstico</h3>
+          <ul class="mt-3 space-y-2 text-sm" style="color:var(--kv-cinza)">
+            <li>• Recorte e mapeamento de áreas</li>
+            <li>• Checklist de elegibilidade e riscos</li>
+            <li>• Estimativa conservadora e roadmap</li>
+          </ul>
+        </div>
+
+        <div class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm hover:shadow-md transition fade-in">
+          <h3 class="text-lg font-semibold" style="color:var(--kv-azul)">Estruturação &amp; MRV</h3>
+          <ul class="mt-3 space-y-2 text-sm" style="color:var(--kv-cinza)">
+            <li>• Plano técnico e documentação</li>
+            <li>• Plano de monitoramento e evidências</li>
+            <li>• Preparação para auditoria</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <div class="text-xs font-semibold" style="color:var(--kv-verde)">Próximo passo</div>
+            <div class="mt-1 text-xl font-bold" style="color:var(--kv-azul)">Quer aplicar o método no seu cenário?</div>
+            <div class="mt-1 text-sm" style="color:var(--kv-cinza)">A conversa começa pelo diagnóstico: rápido, objetivo e sem promessa vazia.</div>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="/#contato" class="rounded-2xl px-5 py-3 font-semibold shadow hover:opacity-90"
+               style="background:var(--kv-dourado);color:#141414">Iniciar diagnóstico</a>
+            <button id="wa2" class="rounded-2xl border px-5 py-3 font-semibold hover:shadow transition bg-white"
+                    style="border-color:rgba(0,59,115,.25);color:var(--kv-azul)">WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 border-t border-black/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight" style="color:var(--kv-azul)">FAQ</h2>
+        <p class="mt-3 text-base md:text-lg" style="color:var(--kv-cinza)">
+          Respostas diretas para alinhar expectativa (e evitar ruído).
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-4">
+        <details class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+          <summary class="cursor-pointer font-semibold" style="color:var(--kv-azul)">Por que vocês insistem em diagnóstico primeiro?</summary>
+          <p class="mt-2 text-sm leading-relaxed" style="color:var(--kv-cinza)">
+            Porque carbono não é produto de prateleira. Sem recorte de área, histórico, elegibilidade e riscos, qualquer número vira chute — e isso quebra na auditoria.
+          </p>
+        </details>
+
+        <details class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+          <summary class="cursor-pointer font-semibold" style="color:var(--kv-azul)">Vocês fazem “apenas carbono” para empresas e usinas?</summary>
+          <p class="mt-2 text-sm leading-relaxed" style="color:var(--kv-cinza)">
+            Sim — mas o ponto de partida ainda é o campo. O que muda é que empresas/usinas normalmente já têm dados e inventários, então entramos direto na estruturação, MRV e certificação.
+          </p>
+        </details>
+
+        <details class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+          <summary class="cursor-pointer font-semibold" style="color:var(--kv-azul)">O método serve para quais práticas?</summary>
+          <p class="mt-2 text-sm leading-relaxed" style="color:var(--kv-cinza)">
+            Depende de elegibilidade e metodologia aplicável, mas costuma se encaixar bem em pastagens, integração (ILPF), reflorestamento e sistemas agroflorestais — sempre com critérios e evidências.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-black/5 bg-white/60 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <picture>
+            <source srcset="/logo-wordmark.svg" type="image/svg+xml">
+            <img src="/logo-wordmark.png" alt="KarbonVero" class="brand-img--footer" width="150" height="24" loading="lazy" decoding="async">
+          </picture>
+          <p class="text-sm" style="color:var(--kv-cinza)">
+            © <span id="year"></span> KarbonVero. Todos os direitos reservados.
+          </p>
+        </div>
+        <div class="text-sm" style="color:var(--kv-cinza)">
+          “Sua terra vale mais quando é Vero.”
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function openWA(){
+      const text = encodeURIComponent('Olá! Quero iniciar um diagnóstico para um projeto de crédito de carbono.');
+      window.open('https://wa.me/5515997353773?text=' + text, '_blank');
+    }
+
+    document.getElementById('wa').addEventListener('click', openWA);
+    document.getElementById('wa2').addEventListener('click', openWA);
+
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    },{threshold:.15});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>

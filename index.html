@@ -1,749 +1,581 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#003B73" />
+  <!-- =========================================================
+       KarbonVero — index.html
+       Revisão de conteúdo: 2026-01 (alinhado ao conceito "Crédito de carbono com base ecossistêmica")
+       ========================================================= -->
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <title>KarbonVero | Crédito de carbono com base ecossistêmica</title>
-  <meta name="description" content="Projetos de crédito de carbono com base ecossistêmica. Diagnóstico no campo, estruturação técnica, certificação e viabilização — com integridade ambiental e rastreabilidade." />
+  <title>KarbonVero — Crédito de carbono com base ecossistêmica</title>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="KarbonVero | Crédito de carbono com base ecossistêmica" />
-  <meta property="og:description" content="Projetos de crédito de carbono com base ecossistêmica: diagnóstico, estruturação, certificação e viabilização com integridade e rastreabilidade." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.karbonvero.com/" />
-  <meta property="og:image" content="assets/og-image.jpg" />
+  <!-- ==================== SEO / Social ==================== -->
+  <link rel="canonical" href="https://www.karbonvero.com/">
+  <meta name="description" content="KarbonVero: projetos de crédito de carbono com base ecossistêmica. Diagnóstico no campo, estruturação técnica, MRV e suporte à certificação e comercialização com rastreabilidade.">
+  <meta name="keywords" content="KarbonVero, crédito de carbono, base ecossistêmica, diagnóstico ambiental, MRV, agro, ILPF, reflorestamento, carbono do solo, biomassa, sustentabilidade, pecuária, pastagem, eucalipto, usina sucroenergética">
+  <meta name="author" content="KarbonVero">
 
-  <!-- Favicon placeholders (ajuste para seus arquivos reais) -->
-  <link rel="icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta property="og:title" content="KarbonVero — Crédito de carbono com base ecossistêmica">
+  <meta property="og:description" content="Projetos de crédito de carbono com base ecossistêmica: diagnóstico, estruturação, MRV, certificação e suporte ao go-to-market.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="/kv-badge-512.png">
+  <meta name="twitter:card" content="summary_large_image">
 
+  <!-- ==================== Favicons / PWA ==================== -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#003B73">
+
+  <!-- ==================== Fontes ==================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ==================== Tailwind (CDN) ==================== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            kvazul:"#003B73", kvdourado:"#CDA434", kvverde:"#4B7C38",
+            kvcinza:"#6E6E6E", kvazulclaro:"#1E5A96"
+          },
+          fontFamily:{ sans:["Inter","system-ui","-apple-system","Segoe UI","Roboto","Helvetica","Arial","sans-serif"] },
+          boxShadow:{ "kv-ring":"inset 0 0 0 1px rgba(0,0,0,.04)" },
+          borderRadius:{ "3xl":"1.5rem" }
+        }
+      }
+    }
+  </script>
+
+  <!-- ==================== Estilos locais ==================== -->
   <style>
     :root{
-      --kv-blue:#003B73;
-      --kv-green:#4B7C38;
-      --kv-gold:#CDA434;
-      --bg:#0b1220;
-      --panel:#0f1930;
-      --card:#0f1c33;
-      --text:#e8edf6;
-      --muted:#b7c2d6;
-      --line:rgba(255,255,255,.10);
-      --shadow: 0 12px 30px rgba(0,0,0,.35);
-      --radius:18px;
-      --max:1120px;
+      --kv-azul:#003B73; --kv-dourado:#CDA434; --kv-verde:#4B7C38;
+      --kv-cinza:#6E6E6E; --kv-azulclaro:#1E5A96;
     }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 700px at 15% 10%, rgba(0,59,115,.25), transparent 60%),
-                  radial-gradient(1000px 600px at 85% 20%, rgba(205,164,52,.18), transparent 55%),
-                  radial-gradient(900px 600px at 50% 90%, rgba(75,124,56,.14), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.45;
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    .kv-gradient-hero{
+      background:linear-gradient(120deg,var(--kv-azul) 0%,var(--kv-azulclaro) 55%,var(--kv-dourado) 100%);
     }
-
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px;}
-    .pill{
-      display:inline-flex; gap:10px; align-items:center;
-      padding:8px 12px; border:1px solid var(--line); border-radius:999px;
-      color:var(--muted); background:rgba(255,255,255,.03);
-      backdrop-filter: blur(10px);
-      font-size:13px;
+    .hero-watermark{
+      position:absolute;inset:0;pointer-events:none;
+      background-repeat:no-repeat;background-position:85% 35%;
+      background-size:min(44vw,540px);opacity:.10;
+      background-image:url('/logo-wordmark.png');
     }
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--kv-green); box-shadow:0 0 0 4px rgba(75,124,56,.18);}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 16px; border-radius:12px; border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      color:var(--text); font-weight:600; letter-spacing:.2px;
-      cursor:pointer; transition:.18s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.18)}
-    .btn.primary{
-      border:none;
-      background: linear-gradient(135deg, var(--kv-blue), rgba(0,59,115,.75));
-      box-shadow: 0 10px 25px rgba(0,59,115,.25);
-    }
-    .btn.primary:hover{filter:brightness(1.05)}
-    .btn.gold{
-      border:none;
-      background: linear-gradient(135deg, var(--kv-gold), rgba(205,164,52,.75));
-      color:#121212;
-      box-shadow: 0 10px 25px rgba(205,164,52,.18);
-    }
-
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:50;
-      background: rgba(11,18,32,.72);
-      border-bottom:1px solid var(--line);
-      backdrop-filter: blur(14px);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width:220px;
-    }
-    .brand img{height:26px; width:auto}
-    .brand strong{font-weight:800; letter-spacing:.2px}
-    .menu{
-      display:flex; gap:18px; align-items:center;
-      color:var(--muted); font-weight:600; font-size:14px;
-    }
-    .menu a{padding:8px 10px; border-radius:10px}
-    .menu a:hover{background:rgba(255,255,255,.04); color:var(--text)}
-    .actions{display:flex; gap:10px; align-items:center}
-
-    /* Mobile menu */
-    .hamb{display:none}
-    @media (max-width: 920px){
-      .menu{display:none}
-      .hamb{display:inline-flex}
-      .actions .btn{display:none}
-      .actions .btn.primary{display:inline-flex}
-    }
-
-    /* Hero */
-    .hero{padding:70px 0 40px}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:26px;
-      align-items:stretch;
-    }
-    .hero h1{
-      margin:16px 0 10px;
-      font-size: clamp(34px, 4.2vw, 52px);
-      line-height:1.05;
-      letter-spacing:-.7px;
-    }
-    .hero p{
-      margin:0;
-      color:var(--muted);
-      font-size: 17px;
-      max-width: 58ch;
-    }
-    .hero-cta{display:flex; gap:12px; margin-top:20px; flex-wrap:wrap}
-    .hero-badges{
-      margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;
-      color:var(--muted); font-size:13px;
-    }
-    .badge{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:8px 10px; border:1px solid var(--line); border-radius:12px;
-      background:rgba(255,255,255,.03);
-    }
-    .badge svg{opacity:.85}
-
-    .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-      overflow:hidden;
-    }
-    .kpi{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top:14px;
-    }
-    .kpi .card{
-      background: rgba(0,0,0,.18);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius: 16px;
-      padding: 14px;
-      min-height:92px;
-    }
-    .kpi .card strong{display:block; font-size:13px; color:var(--muted); font-weight:700}
-    .kpi .card span{display:block; margin-top:8px; font-size:18px; font-weight:800}
-    .kpi .card em{display:block; margin-top:4px; font-size:12px; color:var(--muted); font-style:normal}
-
-    @media (max-width: 920px){
-      .hero{padding:52px 0 32px}
-      .hero-grid{grid-template-columns:1fr}
-    }
-
-    /* Sections */
-    section{padding:54px 0; border-top:1px solid var(--line)}
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
-      margin-bottom:18px;
-    }
-    .section-title h2{
-      margin:0;
-      font-size: clamp(24px, 3vw, 34px);
-      letter-spacing:-.3px;
-    }
-    .section-title p{
-      margin:0;
-      color:var(--muted);
-      max-width: 62ch;
-      font-size:15px;
-    }
-
-    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
-    @media (max-width: 920px){
-      .grid-3,.grid-2{grid-template-columns:1fr}
-    }
-
-    .cardx{
-      background: rgba(255,255,255,.03);
-      border:1px solid var(--line);
-      border-radius: 18px;
-      padding:16px;
-    }
-    .cardx h3{margin:6px 0 8px; font-size:16px}
-    .cardx p{margin:0; color:var(--muted); font-size:14px}
-    .icon{
-      width:36px;height:36px;border-radius:12px;
-      display:grid;place-items:center;
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-    }
-
-    .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-    .step{
-      position:relative;
-      padding:18px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-    }
-    .step .n{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:30px; height:30px; border-radius:10px;
-      background: rgba(0,59,115,.25);
-      border:1px solid rgba(0,59,115,.35);
-      font-weight:900;
-    }
-    .step h3{margin:12px 0 8px}
-    .step p{margin:0; color:var(--muted); font-size:14px}
-    @media (max-width: 920px){ .steps{grid-template-columns:1fr} }
-
-    /* CTA */
-    .cta{
-      padding: 0;
-      border-top:1px solid var(--line);
-    }
-    .cta-inner{
-      margin:54px 0;
-      border-radius: 22px;
-      border:1px solid var(--line);
-      background: radial-gradient(700px 400px at 15% 20%, rgba(0,59,115,.25), transparent 60%),
-                  radial-gradient(600px 350px at 85% 30%, rgba(205,164,52,.20), transparent 55%),
-                  rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .cta-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:0;
-    }
-    .cta-copy{padding:22px}
-    .cta-copy h2{margin:0 0 10px; font-size:28px; letter-spacing:-.3px}
-    .cta-copy p{margin:0; color:var(--muted); max-width:60ch}
-    .cta-form{
-      padding:22px;
-      border-left:1px solid var(--line);
-      background: rgba(0,0,0,.14);
-    }
-    @media (max-width: 920px){
-      .cta-grid{grid-template-columns:1fr}
-      .cta-form{border-left:none; border-top:1px solid var(--line)}
-    }
-    label{display:block; font-size:12px; color:var(--muted); margin:10px 0 6px}
-    input, textarea, select{
-      width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      outline:none;
-    }
-    textarea{min-height:92px; resize:vertical}
-    input:focus, textarea:focus, select:focus{border-color: rgba(205,164,52,.45)}
-    .form-row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
-    @media (max-width: 640px){ .form-row{grid-template-columns:1fr} }
-    .small{font-size:12px; color:var(--muted); margin-top:10px}
-    .hr{height:1px; background:var(--line); margin:14px 0}
-
-    /* Footer */
-    footer{padding:26px 0 38px; color:var(--muted)}
-    .foot{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:20px; flex-wrap:wrap;
-    }
-    .foot strong{color:var(--text)}
-    .foot a{color:var(--muted)}
-    .foot a:hover{color:var(--text)}
-    .links{display:flex; gap:14px; flex-wrap:wrap}
-    .tiny{font-size:12px; opacity:.9}
-
-    /* Modal mobile menu */
-    .modal{
-      position:fixed; inset:0; display:none;
-      background: rgba(0,0,0,.55);
-      z-index:100;
-    }
-    .modal .sheet{
-      position:absolute; top:0; right:0; height:100%; width:min(360px, 92vw);
-      background: rgba(11,18,32,.92);
-      border-left:1px solid var(--line);
-      backdrop-filter: blur(14px);
-      padding:16px;
-    }
-    .modal a{display:block; padding:12px 10px; border-radius:12px; color:var(--muted); font-weight:700}
-    .modal a:hover{background:rgba(255,255,255,.05); color:var(--text)}
-    .modal .top{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px}
+    .brand-img{height:32px;width:auto;display:block}
+    .brand-img--footer{height:24px;width:auto;display:block}
+    .glass{background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.58));backdrop-filter:blur(8px)}
+    .ring-kv{box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+    .fade-in{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+    .cover-img{object-fit:cover}
+    .hyphens{hyphens:auto;overflow-wrap:anywhere;word-break:normal}
   </style>
-
-  <!-- JSON-LD básico -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"KarbonVero",
-    "url":"https://www.karbonvero.com/",
-    "description":"Projetos de crédito de carbono com base ecossistêmica: diagnóstico, estruturação, certificação e viabilização com integridade ambiental e rastreabilidade.",
-    "sameAs":[]
-  }
-  </script>
 </head>
 
-<body>
-  <header>
-    <div class="wrap">
-      <div class="nav">
-        <a class="brand" href="#top" aria-label="KarbonVero">
-          <img src="assets/logo.svg" alt="KarbonVero" onerror="this.style.display='none'">
-          <div>
-            <strong>KarbonVero</strong><br>
-            <span class="tiny">Crédito de carbono com base ecossistêmica</span>
-          </div>
+<body class="antialiased text-slate-800 bg-white">
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+  <header class="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3" aria-label="KarbonVero">
+          <picture>
+            <source srcset="/logo-wordmark.svg" type="image/svg+xml">
+            <img src="/logo-wordmark.png" alt="KarbonVero" class="brand-img" width="180" height="32" decoding="async">
+          </picture>
         </a>
 
-        <nav class="menu" aria-label="Menu">
-          <a href="#conceito">Conceito</a>
-          <a href="#como">Como atuamos</a>
-          <a href="#paraquem">Para quem</a>
-          <a href="#diferencial">Diferenciais</a>
-          <a href="#contato">Contato</a>
+        <!-- Navegação -->
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#conceito" class="hover:text-slate-900 text-slate-600">Conceito</a>
+          <a href="#como-funciona" class="hover:text-slate-900 text-slate-600">Como funciona</a>
+          <a href="#servicos" class="hover:text-slate-900 text-slate-600">Serviços</a>
+          <a href="#para-quem" class="hover:text-slate-900 text-slate-600">Para quem</a>
+          <a href="#cases" class="hover:text-slate-900 text-slate-600">Aplicações</a>
+          <a href="#calculadora" class="hover:text-slate-900 text-slate-600">Calculadora</a>
+          <a href="#contato" class="hover:text-slate-900 text-slate-600">Contato</a>
         </nav>
 
-        <div class="actions">
-          <button class="btn hamb" id="openMenu" aria-label="Abrir menu">☰</button>
-          <a class="btn" href="#contato">Falar com a KarbonVero</a>
-          <a class="btn primary" href="#contato">Iniciar diagnóstico</a>
+        <!-- Ações -->
+        <div class="flex items-center gap-2">
+          <button id="wa"
+            class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-medium shadow-sm hover:shadow transition"
+            style="border-color:var(--kv-azul);color:var(--kv-azul)">WhatsApp</button>
+
+          <a href="/calculadora.html" class="hidden sm:inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-medium shadow-sm hover:shadow transition"
+             style="border-color:var(--kv-dourado);color:var(--kv-dourado)">Calculadora Avançada</a>
         </div>
       </div>
     </div>
   </header>
 
-  <main id="top">
-    <!-- HERO -->
-    <div class="hero">
-      <div class="wrap">
-        <div class="hero-grid">
-          <div>
-            <span class="pill"><span class="dot"></span> Projetos com integridade ambiental e rastreabilidade</span>
-            <h1>Projetos de crédito de carbono com base ecossistêmica.</h1>
-            <p>
-              A KarbonVero estrutura créditos de carbono a partir do diagnóstico técnico e ambiental da propriedade,
-              integrando solo, florestas, uso da terra e manejo produtivo para gerar créditos consistentes — e não “créditos no papel”.
-            </p>
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 kv-gradient-hero opacity-95"></div>
+    <div class="hero-watermark" aria-hidden="true"></div>
 
-            <div class="hero-cta">
-              <a class="btn primary" href="#contato">Iniciar diagnóstico</a>
-              <a class="btn" href="#como">Entender o processo</a>
-              <a class="btn gold" href="#paraquem">Ver meu perfil</a>
-            </div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-white">
+      <div class="grid gap-10 md:grid-cols-2 md:items-center">
+        <!-- Texto -->
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+            Crédito de carbono com base ecossistêmica
+          </h1>
 
-            <div class="hero-badges" aria-label="Pontos-chave">
-              <span class="badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 9.7-8 10-4.6-.3-8-5-8-10V6l8-4z" stroke="currentColor" opacity=".9" stroke-width="2"/></svg>
-                Integridade e conformidade
-              </span>
-              <span class="badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" opacity=".9" stroke-width="2"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" opacity=".9" stroke-width="2"/></svg>
-                Diagnóstico no campo
-              </span>
-              <span class="badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 20s8-5 8-10a8 8 0 10-16 0c0 5 8 10 8 10z" stroke="currentColor" opacity=".9" stroke-width="2"/></svg>
-                Base ecossistêmica sólida
-              </span>
-            </div>
+          <p class="mt-4 text-lg text-white/90">
+            Projetos de carbono que começam no campo: diagnóstico ecossistêmico integrado, estruturação técnica, MRV e suporte à certificação e comercialização —
+            com <span class="font-semibold">rastreabilidade</span> e <span class="font-semibold">integridade</span>.
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="#contato" class="rounded-2xl px-5 py-3 font-medium shadow hover:opacity-90"
+               style="background:var(--kv-dourado);color:#141414">Iniciar diagnóstico</a>
+            <a href="#como-funciona" class="rounded-2xl border px-5 py-3 font-medium hover:shadow"
+               style="border-color:rgba(255,255,255,.6);color:white">Entender o processo</a>
           </div>
 
-          <aside class="panel" aria-label="Resumo">
-            <div class="pill" style="margin-bottom:10px">
-              <span class="dot" style="background:var(--kv-gold); box-shadow:0 0 0 4px rgba(205,164,52,.18)"></span>
-              O carbono é o produto. A base ecossistêmica é o diferencial.
-            </div>
+          <div class="mt-6 text-xs text-white/80">
+            Sem promessa sem diagnóstico • Etapas claras • Suporte via WhatsApp
+          </div>
 
-            <div class="cardx" style="margin-top:12px">
-              <h3 style="margin:0 0 8px">O que muda na prática?</h3>
-              <p>
-                Projetos de carbono “genéricos” começam na promessa.
-                A KarbonVero começa no ecossistema: diagnósticos, dados e integridade — para que o crédito seja consequência, não aposta.
-              </p>
-            </div>
+          <div class="mt-5 text-sm text-white/90">
+            <span class="font-semibold">KarbonVero —</span> Sua terra vale mais quando é Vero.
+          </div>
+        </div>
 
-            <div class="kpi" aria-label="Indicadores conceituais">
-              <div class="card">
-                <strong>Entrada</strong>
-                <span>Diagnóstico</span>
-                <em>ecossistêmico integrado</em>
-              </div>
-              <div class="card">
-                <strong>Entrega</strong>
-                <span>Carbono</span>
-                <em>com rastreabilidade</em>
-              </div>
-              <div class="card">
-                <strong>Foco</strong>
-                <span>Integridade</span>
-                <em>técnica e ambiental</em>
-              </div>
-              <div class="card">
-                <strong>Resultado</strong>
-                <span>Valor</span>
-                <em>real, sustentável</em>
-              </div>
+        <!-- Destaque -->
+        <div class="glass rounded-3xl p-6 shadow-xl ring-kv">
+          <img class="aspect-video w-full rounded-2xl object-cover"
+               alt="Área rural com ILPF"
+               src="/ILPF.png">
+
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+            <div class="rounded-2xl border p-4 border-white/40">
+              <div class="text-2xl font-bold hyphens">Diagnóstico</div>
+              <div class="text-xs text-white/90">no ecossistema</div>
             </div>
-          </aside>
+            <div class="rounded-2xl border p-4 border-white/40">
+              <div class="text-2xl font-bold hyphens">MRV</div>
+              <div class="text-xs text-white/90">auditável</div>
+            </div>
+            <div class="rounded-2xl border p-4 border-white/40">
+              <div class="text-2xl font-bold hyphens">Carbono</div>
+              <div class="text-xs text-white/90">com integridade</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- CONCEITO -->
-    <section id="conceito">
-      <div class="wrap">
-        <div class="section-title">
-          <div>
-            <h2>Carbono começa no ecossistema</h2>
-            <p>
-              Na KarbonVero, projetos de crédito de carbono não começam apenas em estimativas teóricas.
-              Começam no campo, com análise ecossistêmica e critérios técnicos que sustentam a qualidade do crédito.
-            </p>
-          </div>
+  <!-- =========================================================
+       CONCEITO (substitui "Quem somos" como primeira âncora)
+       ========================================================= -->
+  <section id="conceito" class="bg-[#FAF9F7] py-20 px-6 md:px-20 text-[#003B73]">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#4B7C38] mb-8">
+        Carbono começa no ecossistema
+      </h2>
+
+      <p class="text-lg md:text-xl leading-relaxed mb-6">
+        A KarbonVero estrutura <span class="font-semibold text-[#4B7C38]">projetos de crédito de carbono</span> com base ecossistêmica:
+        antes de falar em emissão, a gente avalia a realidade do campo — solo, vegetação, uso da terra, manejo e histórico.
+      </p>
+
+      <p class="text-lg md:text-xl leading-relaxed mb-6">
+        Isso reduz risco, aumenta consistência e evita o erro comum do mercado: “carbono no papel”.
+        Aqui, carbono é consequência de um projeto tecnicamente defensável, com trilhas de evidência e rastreabilidade.
+      </p>
+
+      <p class="text-lg md:text-xl leading-relaxed mb-10">
+        O resultado é um caminho claro: diagnóstico → estruturação → MRV → certificação → monetização.
+        Sem atalhos que comprometam a credibilidade do crédito.
+      </p>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv">
+          <div class="text-sm font-semibold" style="color:var(--kv-azulclaro)">Integridade</div>
+          <p class="mt-2 text-sm text-slate-700">Critério técnico e ambiental antes de qualquer estimativa. Carbono “bom” precisa resistir a auditoria e tempo.</p>
         </div>
-
-        <div class="grid-3">
-          <div class="cardx">
-            <div class="icon">🌿</div>
-            <h3>Base ecossistêmica</h3>
-            <p>Solo, vegetação, uso da terra e manejo avaliados para garantir coerência ambiental e técnica do projeto.</p>
-          </div>
-          <div class="cardx">
-            <div class="icon">📌</div>
-            <h3>Diagnóstico orientado ao carbono</h3>
-            <p>O diagnóstico não é “genérico”: ele é estruturado para definir elegibilidade, caminhos e riscos do projeto de carbono.</p>
-          </div>
-          <div class="cardx">
-            <div class="icon">🧾</div>
-            <h3>Rastreabilidade e integridade</h3>
-            <p>O crédito precisa ser defensável. Nosso foco é reduzir risco de contestação, inconsistência e perda de credibilidade.</p>
-          </div>
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv">
+          <div class="text-sm font-semibold" style="color:var(--kv-azulclaro)">Rastreabilidade</div>
+          <p class="mt-2 text-sm text-slate-700">Trilha de evidências, documentação e dados organizados para verificação e due diligence.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- COMO ATUAMOS -->
-    <section id="como">
-      <div class="wrap">
-        <div class="section-title">
-          <div>
-            <h2>Como estruturamos projetos de crédito de carbono</h2>
-            <p>Um fluxo único: diagnóstico ecossistêmico integrado → estruturação do projeto → certificação e viabilização.</p>
-          </div>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <div class="n">1</div>
-            <h3>Diagnóstico ecossistêmico integrado</h3>
-            <p>
-              Levantamento técnico e ambiental com foco em carbono:
-              ativos ambientais, uso da terra, histórico e práticas produtivas para definição de elegibilidade e riscos.
-            </p>
-          </div>
-          <div class="step">
-            <div class="n">2</div>
-            <h3>Estruturação do projeto de carbono</h3>
-            <p>
-              Definição de metodologia, baseline e adicionalidade, além dos requisitos técnicos conforme padrões de certificação.
-            </p>
-          </div>
-          <div class="step">
-            <div class="n">3</div>
-            <h3>Certificação e monetização</h3>
-            <p>
-              Acompanhamento do processo de certificação e suporte à viabilização comercial dos créditos — com transparência e rastreabilidade.
-            </p>
-          </div>
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv">
+          <div class="text-sm font-semibold" style="color:var(--kv-azulclaro)">Valor real</div>
+          <p class="mt-2 text-sm text-slate-700">Viabilidade econômica com transparência: estimativas conservadoras, roadmap e expectativas alinhadas.</p>
         </div>
       </div>
-    </section>
 
-    <!-- PARA QUEM -->
-    <section id="paraquem">
-      <div class="wrap">
-        <div class="section-title">
-          <div>
-            <h2>Para quem a KarbonVero atua</h2>
-            <p>Carbono em primeiro plano — com base ecossistêmica como padrão de qualidade, independentemente do perfil do cliente.</p>
-          </div>
+      <p class="mt-10 text-xl md:text-2xl font-semibold text-[#003B73] italic">
+        KarbonVero — <span class="text-[#4B7C38]">Sua terra vale mais quando é Vero.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       COMO FUNCIONA
+       ========================================================= -->
+  <section id="como-funciona" class="py-16 border-t bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Como funciona</h2>
+        <p class="mt-2" style="color:var(--kv-cinza)">Processo claro, com marcos verificáveis — e diagnóstico ecossistêmico como base.</p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv fade-in">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">Etapa 1</div>
+          <h3 class="mt-1 font-semibold">Diagnóstico ecossistêmico integrado</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
+            Objetivos, áreas, histórico e dados básicos. Avaliamos ativos e riscos do ecossistema com foco em elegibilidade para carbono.
+          </p>
         </div>
 
-        <div class="grid-2">
-          <div class="cardx">
-            <div class="icon">🚜</div>
-            <h3>Produtores rurais</h3>
-            <p>
-              Projetos de crédito de carbono estruturados a partir da realidade ambiental e produtiva da propriedade.
-              O diagnóstico ecossistêmico integrado é a base para gerar créditos consistentes, com sustentabilidade e rentabilidade no longo prazo.
-            </p>
-          </div>
-          <div class="cardx">
-            <div class="icon">🏭</div>
-            <h3>Empresas e usinas sucroenergéticas</h3>
-            <p>
-              Atuação direta em projetos de crédito de carbono para empresas com dados consolidados.
-              Mantemos o mesmo padrão técnico-ambiental de integridade e rastreabilidade — com diagnóstico focado nos critérios do projeto.
-            </p>
-          </div>
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv fade-in">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">Etapa 2</div>
+          <h3 class="mt-1 font-semibold">Estruturação do projeto &amp; MRV</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
+            Plano técnico com metodologia, baseline, adicionalidade e um MRV pensado para auditoria (monitoramento, relato e verificação).
+          </p>
+        </div>
+
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv fade-in">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">Etapa 3</div>
+          <h3 class="mt-1 font-semibold">Certificação &amp; mercado</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
+            Documentação, suporte à verificação, estratégia comercial e conexão com o mercado conforme o estágio do projeto.
+          </p>
         </div>
       </div>
-    </section>
 
-    <!-- DIFERENCIAIS -->
-    <section id="diferencial">
-      <div class="wrap">
-        <div class="section-title">
-          <div>
-            <h2>Diferenciais que sustentam o crédito</h2>
-            <p>O mercado paga por confiança. Seu projeto precisa resistir a auditoria, questionamento e tempo.</p>
-          </div>
+      <div class="mt-8 text-xs" style="color:var(--kv-cinza)">
+        *Importante:* crédito de carbono não é promessa. A viabilidade depende do diagnóstico, elegibilidade, metodologia, custos e riscos do projeto.
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SERVIÇOS (cards)
+       ========================================================= -->
+  <section id="servicos" class="py-16 border-t">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Serviços</h2>
+        <p class="mt-2" style="color:var(--kv-cinza)">Carbono em primeiro plano — com base ecossistêmica como padrão de qualidade.</p>
+      </div>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <!-- Card 1 -->
+        <div class="rounded-3xl border p-6 shadow-sm hover:shadow transition bg-white">
+          <img class="w-full h-44 object-cover rounded-xl mb-4"
+               alt="Diagnóstico ecossistêmico integrado"
+               src="/Diagnostico_de_potencial.png">
+          <h3 class="font-semibold" style="color:var(--kv-azulclaro)">Diagnóstico ecossistêmico integrado</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
+            Levantamento orientado a carbono: ativos do ecossistema, áreas, histórico e elegibilidade com visão de riscos e viabilidade.
+          </p>
+          <ul class="mt-4 list-disc pl-5 text-sm" style="color:var(--kv-cinza)">
+            <li>Mapeamento e recortes de área</li>
+            <li>Pré-elegibilidade e riscos</li>
+            <li>Estimativas conservadoras e roadmap</li>
+          </ul>
         </div>
 
-        <div class="grid-3">
-          <div class="cardx">
-            <div class="icon">🧠</div>
-            <h3>Critério antes de promessa</h3>
-            <p>Sem diagnóstico e elegibilidade, não existe “projeção bonita”. Primeiro estrutura; depois monetiza.</p>
-          </div>
-          <div class="cardx">
-            <div class="icon">🔍</div>
-            <h3>Menos risco, mais consistência</h3>
-            <p>Projetos frágeis viram dor de cabeça. Nosso foco é reduzir risco técnico e reputacional do crédito.</p>
-          </div>
-          <div class="cardx">
-            <div class="icon">🧩</div>
-            <h3>Base ecossistêmica integrada</h3>
-            <p>Solo, vegetação, uso da terra e manejo entram no diagnóstico como base para um carbono defensável.</p>
-          </div>
+        <!-- Card 2 -->
+        <div class="rounded-3xl border p-6 shadow-sm hover:shadow transition bg-white">
+          <img class="w-full h-44 object-cover rounded-xl mb-4"
+               alt="Estruturação do projeto e MRV"
+               src="/Projeto_e_MRV.png">
+          <h3 class="font-semibold" style="color:var(--kv-azulclaro)">Estruturação do projeto &amp; MRV</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
+            Desenho técnico conforme metodologias: baseline, adicionalidade e MRV (monitoramento, relato e verificação) com trilha de evidências.
+          </p>
+          <ul class="mt-4 list-disc pl-5 text-sm" style="color:var(--kv-cinza)">
+            <li>Plano técnico e documentação</li>
+            <li>Coleta de dados e evidências</li>
+            <li>Preparação para auditoria</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="rounded-3xl border p-6 shadow-sm hover:shadow transition bg-white">
+          <img class="w-full h-44 object-cover rounded-xl mb-4"
+               alt="Certificação e go-to-market"
+               src="/Go-to-market.png">
+          <h3 class="font-semibold" style="color:var(--kv-azulclaro)">Certificação &amp; Go-to-market</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
+            Suporte à verificação, organização de due diligence e estratégia comercial para emissão e/ou venda conforme estágio do projeto.
+          </p>
+          <ul class="mt-4 list-disc pl-5 text-sm" style="color:var(--kv-cinza)">
+            <li>Suporte à verificação</li>
+            <li>Due diligence e documentação</li>
+            <li>Estratégia e negociação</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CTA / CONTATO -->
-    <section class="cta" id="contato">
-      <div class="wrap">
-        <div class="cta-inner">
-          <div class="cta-grid">
-            <div class="cta-copy">
-              <span class="pill"><span class="dot"></span> Diagnóstico → Carbono com base ecossistêmica</span>
-              <h2>Comece pelo diagnóstico certo.</h2>
-              <p>
-                Se você quer projeto de carbono sério, a entrada é técnica:
-                diagnóstico ecossistêmico integrado, estruturação conforme critérios e viabilização com rastreabilidade.
-              </p>
+  <!-- =========================================================
+       PARA QUEM
+       ========================================================= -->
+  <section id="para-quem" class="py-16 border-t bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Para quem</h2>
+        <p class="mt-2" style="color:var(--kv-cinza)">O padrão é o mesmo: carbono com integridade e base ecossistêmica. O caminho de entrada muda conforme o perfil.</p>
+      </div>
 
-              <div class="hr"></div>
-
-              <div class="grid-2">
-                <div class="cardx">
-                  <h3 style="margin:0 0 6px">WhatsApp</h3>
-                  <p style="margin:0 0 10px">Atendimento rápido para triagem inicial.</p>
-                  <a class="btn" id="waBtn" href="#">Abrir WhatsApp</a>
-                </div>
-                <div class="cardx">
-                  <h3 style="margin:0 0 6px">E-mail</h3>
-                  <p style="margin:0 0 10px">Para enviar dados e documentação.</p>
-                  <a class="btn" href="mailto:contato@karbonvero.com">contato@karbonvero.com</a>
-                </div>
-              </div>
-
-              <p class="small">
-                *Mensagem importante:* a KarbonVero não “promete crédito”. A viabilidade depende do diagnóstico e da elegibilidade do projeto.
-              </p>
-            </div>
-
-            <div class="cta-form">
-              <form id="leadForm">
-                <div class="form-row">
-                  <div>
-                    <label for="nome">Nome</label>
-                    <input id="nome" name="nome" type="text" placeholder="Seu nome" required />
-                  </div>
-                  <div>
-                    <label for="perfil">Perfil</label>
-                    <select id="perfil" name="perfil" required>
-                      <option value="" selected disabled>Selecione</option>
-                      <option value="Produtor rural">Produtor rural</option>
-                      <option value="Empresa / Usina">Empresa / Usina</option>
-                      <option value="Outro">Outro</option>
-                    </select>
-                  </div>
-                </div>
-
-                <label for="whats">WhatsApp</label>
-                <input id="whats" name="whats" type="tel" placeholder="(xx) xxxxx-xxxx" />
-
-                <label for="local">Cidade/Estado</label>
-                <input id="local" name="local" type="text" placeholder="Ex.: Boituva/SP" />
-
-                <label for="msg">Objetivo</label>
-                <textarea id="msg" name="msg" placeholder="Ex.: Quero avaliar elegibilidade para projeto de crédito de carbono com base ecossistêmica."></textarea>
-
-                <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap">
-                  <button class="btn primary" type="submit">Enviar via WhatsApp</button>
-                  <button class="btn" type="button" id="copyBtn">Copiar mensagem</button>
-                </div>
-
-                <p class="small">
-                  Ao enviar, você autoriza contato para triagem técnica. Nenhum dado é publicado.
-                </p>
-              </form>
-            </div>
-          </div>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">Produtores rurais</div>
+          <h3 class="mt-1 font-semibold">Quando o projeto começa na fazenda</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
+            Ideal para pequenos e médios produtores: diagnóstico ecossistêmico integrado, desenho do projeto, MRV e preparação para certificação com expectativas realistas.
+          </p>
         </div>
 
-        <footer>
-          <div class="foot">
+        <div class="rounded-3xl bg-white p-6 shadow-sm ring-kv">
+          <div class="text-xs font-semibold" style="color:var(--kv-verde)">Empresas e usinas</div>
+          <h3 class="mt-1 font-semibold">Quando o foco é projeto direto de carbono</h3>
+          <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
+            Para empresas/usinas com dados consolidados e inventários: atuamos direto na estruturação e MRV, mantendo o mesmo padrão técnico-ambiental de integridade e rastreabilidade.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       APLICAÇÕES / "CASES" (mantido, mas alinhado)
+       ========================================================= -->
+  <section id="cases" class="py-16 border-t">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Aplicações típicas</h2>
+        <p class="mt-2" style="color:var(--kv-cinza)">Exemplos ilustrativos de onde a base ecossistêmica faz diferença no carbono (substitua por cases reais quando houver).</p>
+      </div>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <article class="rounded-3xl border p-6 bg-white fade-in">
+          <img class="w-full h-36 object-cover rounded-xl mb-4"
+               alt="Pastagem recuperada"
+               src="/Pastagem_recuperada.png">
+          <p class="text-sm text-slate-700">Recuperação de pastagens com MRV simples e trilha de evidências desde o início.</p>
+          <div class="mt-4 text-xs" style="color:var(--kv-cinza)">• Pecuária / Pastagens</div>
+        </article>
+
+        <article class="rounded-3xl border p-6 bg-white fade-in">
+          <img class="w-full h-36 object-cover rounded-xl mb-4"
+               alt="ILPF com eucalipto"
+               src="/ILPF.png">
+          <p class="text-sm text-slate-700">Integração (ILPF) com diagnóstico do ecossistema para reduzir risco e melhorar consistência do carbono.</p>
+          <div class="mt-4 text-xs" style="color:var(--kv-cinza)">• ILPF</div>
+        </article>
+
+        <article class="rounded-3xl border p-6 bg-white fade-in">
+          <img class="w-full h-36 object-cover rounded-xl mb-4"
+               alt="Reflorestamento"
+               src="/Reflorestamento.png">
+          <p class="text-sm text-slate-700">Reflorestamento com estimativas conservadoras e documentação pronta para verificação.</p>
+          <div class="mt-4 text-xs" style="color:var(--kv-cinza)">• Reflorestamento</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CALCULADORA (simplificada)
+       ========================================================= -->
+  <section id="calculadora" class="py-16 border-t bg-slate-50">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Calculadora de carbono (estimativa simplificada)</h2>
+      <p class="mt-2 text-sm" style="color:var(--kv-cinza)">
+        Use para ter uma noção rápida. Valores são ilustrativos e podem variar por metodologia, solo, clima, manejo, adicionalidade, descontos, custos e risco de projeto.
+      </p>
+
+      <div class="mt-6 rounded-3xl bg-white p-6 shadow-sm ring-kv">
+        <form id="kv-calc" class="grid gap-4">
+          <div class="grid sm:grid-cols-3 gap-4">
             <div>
-              <strong>KarbonVero</strong><br/>
-              <span class="tiny">Sua terra vale mais quando é Vero.</span>
+              <label class="text-sm font-medium" for="area">Área (ha)</label>
+              <input id="area" type="number" min="0" step="0.01" placeholder="Ex.: 50" class="w-full rounded-2xl border px-4 py-3" required>
             </div>
-            <div class="links">
-              <a href="#conceito">Conceito</a>
-              <a href="#como">Como atuamos</a>
-              <a href="#paraquem">Para quem</a>
-              <a href="#diferencial">Diferenciais</a>
-              <a href="#top">Topo</a>
+
+            <div>
+              <label class="text-sm font-medium" for="pratica">Prática</label>
+              <select id="pratica" class="w-full rounded-2xl border px-4 py-3">
+                <option value="pastagem">Recuperação de pastagens</option>
+                <option value="ilpf">ILPF / Integração</option>
+                <option value="reflorestamento">Reflorestamento comercial</option>
+                <option value="agrofloresta">Agrofloresta</option>
+              </select>
             </div>
-            <div class="tiny">
-              © <span id="year"></span> KarbonVero. Todos os direitos reservados.
+
+            <div>
+              <label class="text-sm font-medium" for="taxa">Taxa (tCO₂e/ha/ano)</label>
+              <input id="taxa" type="number" min="0" step="0.01" placeholder="Ex.: 3.0" class="w-full rounded-2xl border px-4 py-3" required>
+              <p class="mt-1 text-[11px]" style="color:var(--kv-cinza)">Edite conforme seu contexto/método.</p>
             </div>
           </div>
-        </footer>
-      </div>
-    </section>
-  </main>
 
-  <!-- Mobile menu modal -->
-  <div class="modal" id="menuModal" aria-hidden="true">
-    <div class="sheet" role="dialog" aria-label="Menu">
-      <div class="top">
-        <strong>Menu</strong>
-        <button class="btn" id="closeMenu" aria-label="Fechar">✕</button>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="text-sm font-medium" for="anos">Período (anos)</label>
+              <input id="anos" type="number" min="1" step="1" value="5" class="w-full rounded-2xl border px-4 py-3" required>
+            </div>
+
+            <div>
+              <label class="text-sm font-medium" for="preco">Preço (R$/tCO₂e)</label>
+              <div class="flex items-center gap-2">
+                <input id="preco" type="number" min="0" step="0.01" placeholder="Ex.: 60" class="w-full rounded-2xl border px-4 py-3" required>
+                <a href="/precos.html" target="_blank" rel="noopener" class="text-xs underline" style="color:var(--kv-azulclaro)">Ver preços hoje</a>
+              </div>
+            </div>
+
+            <div class="flex items-end gap-2">
+              <button type="submit" class="w-full rounded-2xl px-5 py-3 font-medium shadow hover:opacity-90"
+                      style="background:var(--kv-verde);color:white">Calcular</button>
+              <a href="/calculadora.html" target="_blank" rel="noopener"
+                 class="rounded-2xl border px-5 py-3 font-medium"
+                 style="border-color:var(--kv-azul);color:var(--kv-azul)">Avançada</a>
+            </div>
+          </div>
+        </form>
+
+        <div id="resultado" class="mt-6 hidden rounded-2xl border p-4">
+          <div class="grid sm:grid-cols-3 gap-4 text-center">
+            <div>
+              <div class="text-xs" style="color:var(--kv-cinza)">tCO₂e estimados (período)</div>
+              <div id="r_tco2" class="text-2xl font-bold"></div>
+            </div>
+            <div>
+              <div class="text-xs" style="color:var(--kv-cinza)">Receita bruta potencial</div>
+              <div id="r_receita" class="text-2xl font-bold"></div>
+            </div>
+            <div>
+              <div class="text-xs" style="color:var(--kv-cinza)">Taxa usada</div>
+              <div id="r_taxa" class="text-2xl font-bold"></div>
+            </div>
+          </div>
+          <p class="mt-3 text-[11px]" style="color:var(--kv-cinza)">
+            💡 Estimativa simplificada — não substitui diagnóstico ecossistêmico, metodologia, adicionais, descontos, custos de MRV e riscos de projeto.
+          </p>
+        </div>
       </div>
-      <a href="#conceito" class="mLink">Conceito</a>
-      <a href="#como" class="mLink">Como atuamos</a>
-      <a href="#paraquem" class="mLink">Para quem</a>
-      <a href="#diferencial" class="mLink">Diferenciais</a>
-      <a href="#contato" class="mLink">Contato</a>
-      <div class="hr"></div>
-      <a class="btn primary" href="#contato" style="width:100%; text-align:center">Iniciar diagnóstico</a>
     </div>
-  </div>
+  </section>
 
+  <!-- =========================================================
+       CONTATO
+       ========================================================= -->
+  <section id="contato" class="py-16 border-t bg-slate-50">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold tracking-tight" style="color:var(--kv-azul)">Contato</h2>
+      <p class="mt-2" style="color:var(--kv-cinza)">Conte seu cenário. A triagem técnica começa pelo diagnóstico.</p>
+
+      <!-- Formulário: mailto (funciona no GitHub Pages). -->
+      <form action="mailto:contato@karbonvero.com" method="post" enctype="text/plain" class="mt-8 grid gap-4">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <input type="text" name="nome" placeholder="Seu nome" class="w-full rounded-2xl border px-4 py-3" required>
+          <input type="email" name="email" placeholder="Seu e-mail" class="w-full rounded-2xl border px-4 py-3" required>
+        </div>
+        <input type="text" name="empresa" placeholder="Propriedade/Empresa (opcional)" class="w-full rounded-2xl border px-4 py-3">
+        <textarea rows="4" name="mensagem" placeholder="Área (ha), prática, cidade/UF e objetivo (carbono com base ecossistêmica)" class="w-full rounded-2xl border px-4 py-3"></textarea>
+        <button type="submit" class="rounded-2xl px-5 py-3 text-white font-medium shadow hover:opacity-90" style="background:var(--kv-azulclaro)">Enviar</button>
+        <p class="text-xs" style="color:var(--kv-cinza)">
+          Observação: não prometemos créditos sem diagnóstico. Ao enviar, você concorda com nossa política de privacidade.
+        </p>
+      </form>
+
+      <div class="mt-4 text-sm" style="color:var(--kv-cinza)">
+        Ou fale direto no WhatsApp: <a href="https://wa.me/5515997353773" target="_blank" class="underline" style="color:var(--kv-azulclaro)">+55 (15) 99735-3773</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="border-t">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <picture>
+            <source srcset="/logo-wordmark.svg" type="image/svg+xml">
+            <img src="/logo-wordmark.png" alt="KarbonVero" class="brand-img--footer" width="150" height="24" loading="lazy" decoding="async">
+          </picture>
+          <p class="text-sm" style="color:var(--kv-cinza)">
+            © <span id="year"></span> KarbonVero. Todos os direitos reservados.
+          </p>
+        </div>
+        <div class="text-sm" style="color:var(--kv-cinza)">
+          “Sua terra vale mais quando é Vero.”
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== Scripts ==================== -->
   <script>
-    // ===== Ajuste seus dados aqui =====
-    const WHATSAPP_NUMBER_E164 = "5511999999999"; // <-- troque (ex.: 55 + DDD + número)
-    const WHATSAPP_DEFAULT_TEXT = "Olá! Quero iniciar um diagnóstico para um projeto de crédito de carbono com base ecossistêmica. Pode me orientar nos próximos passos?";
+    // Ano dinâmico
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // WhatsApp button
-    const waBtn = document.getElementById("waBtn");
-    const waBase = `https://wa.me/${WHATSAPP_NUMBER_E164}`;
-    waBtn.href = `${waBase}?text=${encodeURIComponent(WHATSAPP_DEFAULT_TEXT)}`;
-
-    // Mobile menu
-    const menuModal = document.getElementById("menuModal");
-    const openMenu = document.getElementById("openMenu");
-    const closeMenu = document.getElementById("closeMenu");
-
-    function showMenu(){
-      menuModal.style.display = "block";
-      menuModal.setAttribute("aria-hidden","false");
-    }
-    function hideMenu(){
-      menuModal.style.display = "none";
-      menuModal.setAttribute("aria-hidden","true");
-    }
-
-    if(openMenu) openMenu.addEventListener("click", showMenu);
-    if(closeMenu) closeMenu.addEventListener("click", hideMenu);
-    menuModal.addEventListener("click", (e) => { if(e.target === menuModal) hideMenu(); });
-    document.querySelectorAll(".mLink").forEach(a => a.addEventListener("click", hideMenu));
-
-    // Lead form -> envia via WhatsApp (sem backend)
-    const form = document.getElementById("leadForm");
-    const copyBtn = document.getElementById("copyBtn");
-
-    function buildMessage(){
-      const nome = (document.getElementById("nome").value || "").trim();
-      const perfil = (document.getElementById("perfil").value || "").trim();
-      const whats = (document.getElementById("whats").value || "").trim();
-      const local = (document.getElementById("local").value || "").trim();
-      const msg = (document.getElementById("msg").value || "").trim();
-
-      return [
-        "Olá! Quero iniciar um diagnóstico para um projeto de crédito de carbono com base ecossistêmica.",
-        "",
-        `Nome: ${nome || "-"}`,
-        `Perfil: ${perfil || "-"}`,
-        `WhatsApp: ${whats || "-"}`,
-        `Local: ${local || "-"}`,
-        "",
-        `Objetivo/Contexto: ${msg || "-"}`
-      ].join("\n");
-    }
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const text = buildMessage();
-      window.open(`${waBase}?text=${encodeURIComponent(text)}`, "_blank");
+    // WhatsApp CTA
+    document.getElementById('wa').addEventListener('click', function(){
+      const text = encodeURIComponent('Olá! Quero iniciar um diagnóstico para um projeto de crédito de carbono com base ecossistêmica.');
+      window.open('https://wa.me/5515997353773?text=' + text, '_blank');
     });
 
-    copyBtn.addEventListener("click", async () => {
-      const text = buildMessage();
-      try{
-        await navigator.clipboard.writeText(text);
-        copyBtn.textContent = "Copiado!";
-        setTimeout(() => copyBtn.textContent = "Copiar mensagem", 1400);
-      }catch(err){
-        alert("Não consegui copiar automaticamente. Selecione e copie manualmente:\n\n" + text);
+    // Aplica fade-in quando os elementos entram na viewport
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    },{threshold:.15});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+    // Presets por prática + cálculo simplificado
+    (function(){
+      const presets = { pastagem:4.0, ilpf:8.0, reflorestamento:12.0, agrofloresta:9.0 };
+      const pratica = document.getElementById('pratica');
+      const taxa = document.getElementById('taxa');
+      if(pratica && taxa){
+        const apply = () => { taxa.value = presets[pratica.value] || ''; };
+        pratica.addEventListener('change', apply); apply();
       }
-    });
+      const f = document.getElementById('kv-calc');
+      const box = document.getElementById('resultado');
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        const area = parseFloat(document.getElementById('area').value||'0');
+        const t = parseFloat(taxa.value||'0');
+        const anos = parseInt(document.getElementById('anos').value||'0',10);
+        const preco = parseFloat(document.getElementById('preco').value||'0');
+        if(area<=0||t<=0||anos<=0||preco<0) return;
+        const tco2 = area*t*anos;
+        const receita = tco2*preco;
+        document.getElementById('r_tco2').textContent = tco2.toLocaleString('pt-BR',{maximumFractionDigits:2});
+        document.getElementById('r_receita').textContent = receita.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+        document.getElementById('r_taxa').textContent = `${t.toLocaleString('pt-BR',{maximumFractionDigits:2})} tCO₂e/ha/ano`;
+        box.classList.remove('hidden');
+        box.scrollIntoView({behavior:'smooth',block:'center'});
+      });
+    })();
   </script>
 </body>
 </html>
